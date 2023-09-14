@@ -1,3 +1,16 @@
+COMMITTING & PULLING
+to save changes from the local machine:
+	git add [file name] (if new file is created)
+ 	git commit -am ["commit notes"]
+  	git push
+   	refresh the browser for GitHub to update
+to save changes from GitHub to the local machine:
+	press commit changes button in GitHub
+ 	in local machine:
+  		git fetch
+    		git status
+      		git pull
+
 SIMON HTML
 -4 html pages (just the structure of the code)
 -index.html (most browsers look for this default page-- top level, usually login)
