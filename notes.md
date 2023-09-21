@@ -11,10 +11,11 @@
 - git status
 - git pull
 
-# AWS EC2 
+# AWS
 - elastic IP address: 50.19.212.48 
 - web address: http://50.19.212.48 
-- remote login: ssh -i "official_key.pem" ubuntu@ec2-23-22-93-221.compute-1.amazonaws.com 
+- remote login: ssh -i "official_key.pem" ubuntu@ec2-23-22-93-221.compute-1.amazonaws.com
+- DNS: http://plateplanner.click
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
