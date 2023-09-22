@@ -14,7 +14,7 @@
 # AWS
 - elastic IP address: 50.19.212.48 
 - web address: http://50.19.212.48 
-- remote login: ssh -i "official_key.pem" ubuntu@ec2-50-19-212-48.compute-1.amazonaws.com
+- remote login: ssh -i ~/OneDrive/Desktop/'!!'/"official_key.pem" ubuntu@plateplanner.click
 - DNS: http://plateplanner.click
 
 # SIMON HTML NOTES
