@@ -26,6 +26,10 @@ embedded image:
 ```
 <img src="[filepath/link]" alt="[image name]" width:"[dimension #]" height:"[dimension #]">
 ```
+default input color:
+```
+<input type="color" name="varColor" id="color" value="[hex code]" />
+```
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
