@@ -17,6 +17,16 @@
 - remote login: ssh -i ~/OneDrive/Desktop/'!!'/"official_key.pem" ubuntu@plateplanner.click
 - DNS: http://plateplanner.click
 
+# HTML Code
+hyperlinks: 
+```
+<a href="[link]">[text to click on]</a>
+```
+embedded image:
+```
+<img src="[filepath/link]" alt="[image name]" width:"[dimension #]" height:"[dimension #]">
+```
+
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
 - index.html (most browsers look for this default page-- top level, usually login)
