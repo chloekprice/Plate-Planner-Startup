@@ -16,6 +16,7 @@
 - web address: http://50.19.212.48 
 - remote login: ssh -i ~/OneDrive/Desktop/'!!'/"official_key.pem" ubuntu@plateplanner.click
 - DNS: http://plateplanner.click
+- Deploy: ./deployFiles.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h plateplanner.click -s simon
 
 # HTML Code
 hyperlinks: 
