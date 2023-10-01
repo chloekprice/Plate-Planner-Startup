@@ -13,6 +13,15 @@ The following key features and technologies will be employed in the creation of 
 - HTML: will provide structure for the three main pages (login, calendar, and shopping list).
 - CSS: will provide styling for the pages that can be adjusted to fit various screen sizes.
 - JavaScript: will provide login, calendar manipulation, and shopping list editing.
+## HTML Deliverable
+For this deliverable I made the framework for my application using HTML.
 
+- HTML pages - Three HTML pages that represent logging in, updating the meal calendar, and viewing/editing the shopping list.
+- Links - The login page has link choices to the calendar page and shopping list page.
+- Text - There is text that acts as instruction of how to use the meal calendar.
+- Images - I added an image of a plate to go with the Plate Planner theme.
+- Login - There is a box for the user to input their name and a submit button right next to it.
+- Database - The meals on the calendar that are present when the user opens the application represents how the Database keeps record of what was inputed on the previous launch.
+- WebSocket - The shopping list represents the items pulled in realtime from the meal calendar.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
