@@ -32,6 +32,21 @@ default input color:
 <input type="color" name="varColor" id="color" value="[hex code]" />
 ```
 
+# CSS Code
+to-do:
+- main.css (with potential other files, if needed)
+- each HTML file references main.css by:
+```
+<link rel="stylesheet" href="man.css" />
+```
+- link bootstrap in each HTML file
+
+notes:
+- links go in the head section of the html file
+- override bootstrap in order to keep the menu from changing the flex direction to column on small screens
+- use @media to hide content when the screen is too small
+- use @keyframe for animation
+
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
 - index.html (most browsers look for this default page-- top level, usually login)
