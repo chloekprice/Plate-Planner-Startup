@@ -37,7 +37,7 @@ to-do:
 - main.css (with potential other files, if needed)
 - each HTML file references main.css by:
 ```
-<link rel="stylesheet" href="man.css" />
+<link rel="stylesheet" href="main.css" />
 ```
 - link bootstrap in each HTML file
 
