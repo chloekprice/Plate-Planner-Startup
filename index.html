@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
-    <meta charset="UTF-8"
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plate Planner HTML</title>
   </head>
+  
   <body>
-    
     <header>
-      <h1>Plate Planner</h1>
-      <nav>
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="shopping_list.html">Shopping List</a></li>
-        </menu>
-      </nav>
-    </header>
-    <hr />
+      <menu>
+        <ul class="top">
+          <li id="logo"><h1>Plate Planner</h1></li>
+          <li class="pages"><a class="bloob" href="index.html">Home</a></li>
+          <li class="pages"><a class="bloob" href="calendar.html">Calendar</a></li>
+          <li class="pages"><a class="bloob" href="shopping_list.html">Shopping List</a></li>
+       </ul>
+     </menu>
+   </header>
     
     <main>
-      <h1>Welcome</h1>
-      <p>Login to Plan Your Plate!</p>
-      <form method="get" action="calendar.html">
-        <label for="name">User:</label>
-        <input type="text" id="name" placeholder="Please enter your name"/>
-        <button type="submit">Login</button>
-      </form>
-
-      <aside>
-        <img alt="Plate" src="https://b.rgbimg.com/cache1nDHY8/users/m/mz/mzacha/600/mhitbs8.jpg"/>
-      </aside>
-      
+        <div class="login">
+          <h2>Welcome</h2>
+          <p class="instructions">Login to Plan Your Plate!</p>
+          <form method="get" action="calendar.html">
+            <label for="name">User:</label>
+            <input type="text" id="name" placeholder="Please enter your name"/>
+            <button>Login</button>
+          </form> 
+      </div> 
     </main>
     
     <footer>
-     <hr />
-      <span class="test-reset">Chloe Price</span>
-      <hr />
+      <span class="author">Chloe Price</span>
       <a href="https://github.com/chloekprice/startup.git">GitHub</a>
     </footer>
     
   </body>
 </html>
+  

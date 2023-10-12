@@ -1,0 +1,87 @@
+*{
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+body {
+  background: #B0A9B7;
+  margin: 0;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  background: #B0B0B0;
+  border-radius: 10px;
+}
+
+a:active {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  color: black;
+}
+
+ul.top {
+  list-style-type: none;
+  padding: 5px;
+  margin: 0;
+}
+
+li {
+  float: left;
+  display: block;
+}
+
+#logo {
+  color: black;
+  font-size: 20px;
+  margin-left: 0;
+}
+
+li.pages {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+div.login {
+  display: table;
+  padding: 100px;
+  text-align: center;
+  background: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png") no-repeat center;
+  background-position: center;
+  background-size: contain;
+}
+
+h2 {
+  color: black;
+}
+
+p.instructions {
+  color: black;
+}
+
+label {
+  color: black;
+}
+
+button {
+  color: white;
+  background: black;
+}
+
+footer {
+  text-align: right;
+}
