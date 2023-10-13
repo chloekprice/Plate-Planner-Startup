@@ -1,11 +1,12 @@
-* {
+*{
   color: white;
   font-family: 'Shadows Into Light', cursive;
 }
 
 body {
   background: #B0A9B7;
-  margin: 0;
+  width: 100%;
+  margin: auto;
 }
 
 a:link {
@@ -22,7 +23,6 @@ a:hover {
   text-decoration: none;
   color: white;
   background: #B0B0B0;
-  border-radius: 10px;
 }
 
 a:active {
@@ -37,7 +37,7 @@ h1 {
 ul.top {
   list-style-type: none;
   padding: 5px;
-  margin: 0;
+  margin: 10px;
 }
 
 li {
@@ -56,13 +56,31 @@ li.pages {
   padding: 20px;
 }
 
-div.login {
-  display: table;
-  padding: 100px;
-  text-align: center;
-  background: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png") no-repeat center;
-  background-position: center;
+main {
+  background: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
   background-size: contain;
+  background-origin: padding-box;
+}
+
+div.login {
+  padding: 150px;
+  margin: 10%;
+  margin-bottom: 5%;
+}
+
+div.box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background: rgba(176, 176, 176, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+div.box:hover {
+  background: rgb(176, 176, 176);
 }
 
 h2 {
@@ -84,4 +102,7 @@ button {
 
 footer {
   text-align: right;
+  background: black;
+  font-size: 1em;
+  padding: 1vw;
 }
