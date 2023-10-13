@@ -1,0 +1,82 @@
+*{
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+body {
+  background: #B0A9B7;
+  width: 100%;
+  margin: auto;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  background: #B0B0B0;
+}
+
+a:active {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  color: black;
+}
+
+ul.top {
+  list-style-type: none;
+  padding: 5px;
+  margin: 10px;
+}
+
+li {
+  float: left;
+  display: block;
+}
+
+#logo {
+  color: black;
+  font-size: 20px;
+  margin-left: 0;
+}
+
+li.pages {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+h2 {
+  color: black;
+}
+
+p.instructions {
+  color: black;
+}
+
+label {
+  color: black;
+}
+
+button {
+  color: white;
+  background: black;
+}
+
+footer {
+  text-align: right;
+  background: black;
+  font-size: 1em;
+  padding: 1vw;
+}
+
