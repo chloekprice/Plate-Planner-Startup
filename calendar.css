@@ -1,12 +1,18 @@
-*{
-  color: white;
-  font-family: 'Shadows Into Light', cursive;
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
   background: #B0A9B7;
-  width: 100%;
-  margin: auto;
+  color: white;
+  
+  font-family: 'Shadows Into Light', cursive;
+  
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  height: 100%;
 }
 
 a:link {
@@ -30,52 +36,85 @@ a:active {
   color: white;
 }
 
-h1 {
-  color: black;
+header {
+  flex: 0 50px;
+  font-size: 20px;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  
+  margin-left: 20px;
 }
 
-ul.top {
-  list-style-type: none;
-  padding: 5px;
-  margin: 10px;
-}
-
-li {
-  float: left;
-  display: block;
-}
-
-#logo {
+div.logo {
   color: black;
   font-size: 20px;
-  margin-left: 0;
+  font-weight: bold;
 }
 
-li.pages {
-  margin-top: 30px;
-  padding: 20px;
+div.pages {
+  padding: 2vw;
+  margin-top: 1vw;
 }
 
-h2 {
+main{
+  flex: 1;
+  font-size: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  padding: 0em;
   color: black;
 }
 
-p.instructions {
-  color: black;
+p {
+  padding: 0em;
 }
 
-label {
+table, th, td {
+  background: white;
   color: black;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 15px;
+}
+
+td.day {
+  font-weight: bold;
 }
 
 button {
   color: white;
   background: black;
+  margin: 2vw;
 }
 
 footer {
-  text-align: right;
   background: black;
+  color: white;
   font-size: 1em;
   padding: 1vw;
+  margin-bottom: 0em; 
+  width: 98.5%;
+  
+  flex: 0 50px;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+}
+
+span.test-reset{
+  margin-right: 10px;
 }
