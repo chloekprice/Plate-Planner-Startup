@@ -23,5 +23,14 @@ For this deliverable I made the framework for my application using HTML.
 - Login - There is a box for the user to input their name and a submit button right next to it.
 - Database - The meals on the calendar that are present when the user opens the application represents how the Database keeps record of what was inputed on the previous launch.
 - WebSocket - The shopping list represents the items pulled in realtime from the meal calendar.
+## CSS Deliverable
+For this deliverable I styled my HTML pages for the application.
+
+- Header, footer, and main content body
+- Navigation elements - I got rid of the underline for anchor elements. I also added a hover feature to the anchor elements that highlights them in a light gray box. The default color is now white.
+- Responsive to window resizing - My app adjusts to differents screen sizes. On the shopping list page, the aside disappears when the screen width is too small.
+- Application elements - I made the elements of my application standout with coloring and appropriate whitespace.
+- Application text content - Imported a font used consistently throughout my application.
+- Application images - Move the image on the main page to a background and animated it.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
