@@ -28,9 +28,9 @@ For this deliverable I styled my HTML pages for the application.
 
 - Header, footer, and main content body
 - Navigation elements - I got rid of the underline for anchor elements. I also added a hover feature to the anchor elements that highlights them in a light gray box. The default color is now white.
-- Responsive to window resizing - My app adjusts to differents screen sizes. On the shopping list page, the aside disappears when the screen width is too small.
+- Responsive to window resizing - Still working on making my application fit different screen sizes appropriately:/ On the shopping list page, the aside disappears when the screen width is too small.
 - Application elements - I made the elements of my application standout with coloring and appropriate whitespace.
 - Application text content - Imported a font used consistently throughout my application.
-- Application images - Move the image on the main page to a background and animated it.
+- Application images - Moved the image on the main page to a background and animated it.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
