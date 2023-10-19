@@ -32,10 +32,10 @@ default input color:
 <input type="color" name="varColor" id="color" value="[hex code]" />
 ```
 ## Handwritten Notes
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7604.HEIC?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7605.HEIC?raw=true)
-![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7606.HEIC?raw=true)
-![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7607(1).HEIC?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7604.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7605.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7606.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7607.jpg?raw=true)
 
 
 # CSS Code
