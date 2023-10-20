@@ -60,6 +60,16 @@ notes:
 ![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7612.jpg?raw=true)
 ![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7613.jpg?raw=true)
 
+# JavaScript Code
+
+## Handwritten Notes
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7618.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7619.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7620.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7621.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7622.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7623.jpg?raw=true)
+
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
 - index.html (most browsers look for this default page-- top level, usually login)
