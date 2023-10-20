@@ -52,6 +52,13 @@ notes:
 - override bootstrap in order to keep the menu from changing the flex direction to column on small screens
 - use @media to hide content when the screen is too small
 - use @keyframe for animation
+## Handwritten Notes
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7608.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7609.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7610.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7611.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7612.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7613.jpg?raw=true)
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
