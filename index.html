@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
+    <script src = "login.js"></script>
     <title>Plate Planner HTML</title>
   </head>
   
@@ -20,19 +21,17 @@
    </header>
     
     <section class="slide">
-    <main>
-        <div class="login">
-          <div class="box">
-          <h2>Welcome</h2>
-          <p class="instructions">Login to Plan Your Plate!</p>
-          <form method="get" action="calendar.html">
-            <label for="name">User:</label>
-            <input type="text" id="name" placeholder="Please enter your name"/>
-            <button>Login</button>
-          </form> 
-          </div>
-      </div> 
-    </main>
+      <main>
+          <div class="login">
+            <div class="box">
+            <h2>Welcome</h2>
+            <p class="instructions">Login to Plan Your Plate!</p>
+            <div>
+              <input type="text" id="name" placeholder="Your name here" />
+              <button class="start" onclick="login()">Login</button>
+            </div>
+        </div> 
+      </main>
     </section>
     
     <footer>

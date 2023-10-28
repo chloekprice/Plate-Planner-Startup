@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="calendar.css" />
+    <script src="calendar.js"></script>
     <title>Plate Planner</title>
   </head>
   
@@ -21,7 +22,8 @@
     
  
     <main class="calendar">
-      <h1>User's Week</h1>
+      <h1></h1>
+      <script>setUserName()</script>
       
       <p>Please enter the ingredients needed for each meal.  Each ingredient should be separated by a comma (,).</p>
       
@@ -35,52 +37,52 @@
         </tr>
         <tr>
         <th>Monday</th>
-          <td>granola, berries</td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal1" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal2" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal3" placeholder="enter meal here"></td>
       </tr>
       <tr>
         <th>Tuesday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal4" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal5" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal6" placeholder="enter meal here"></td>
       </tr>
       <tr>
         <th>Wednesday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td>rice, chicken, curry</td>
+          <td><input type="text" id="meal7" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal8" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal9" placeholder="enter meal here"></td>
       </tr>
         <tr>
         <th>Thursday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td>rice, chicken, curry</td>
+          <td><input type="text" id="meal10" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal11" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal12" placeholder="enter meal here"></td>
       </tr>
         <tr>
         <th>Friday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td>rice, chicken, curry</td>
+          <td><input type="text" id="meal13" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal14" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal15" placeholder="enter meal here"></td>
       </tr>
        <tr>
         <th>Saturday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td>rice, chicken, curry</td>
+          <td><input type="text" id="meal16" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal17" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal18" placeholder="enter meal here"></td>
       </tr>
        <tr>
         <th>Sunday</th>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td><input type="text" id="meal" placeholder="enter meal here"></td>
-          <td>rice, chicken, curry</td>
+          <td><input type="text" id="meal19" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal20" placeholder="enter meal here"></td>
+          <td><input type="text" id="meal21" placeholder="enter meal here"></td>
       </tr>
       </table>
      </div>
  
     <div="options">
-      <button>Add to Shopping List</button>
-      <button>Clear Plates</button>
+      <button class="generate" onclick="addToList()">Add to Shopping List</button>
+      <button class="clear" onclick="clearPlates()">Clear Plates</button>
     </div>
     
     </main>
