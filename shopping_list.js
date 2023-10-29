@@ -26,11 +26,7 @@ function addToShoppingList() {
     } else {
         let list = JSON.parse(localStorage.getItem('list'));
         list.push(new_item);
-        for (let h = 0; h < list.length; h++) {
-            console.log(list[h]);
-        }
         new_list = JSON.stringify(list);
-        console.log(new_list);
         localStorage.setItem('list', new_list);
         clearList((list.length - 1));
         displayShoppingList();
@@ -52,9 +48,32 @@ function resetList() {
 
 function addManyItems() {
     console.log('add');
-    
+
 }
 
 function deleteItems() {
     console.log('delete');
+    let delete_item = document.getElementById("delete_item").value;
+    if (localStorage.getItem('list') == '') {
+        return;
+    } else {
+        let list = JSON.parse(localStorage.getItem('list'));
+        for (let h = 0; h < list.length; h++) {
+            if (list[h] == delete_item) {
+                if (h == (list.length - 1)) {
+                    list.pop();
+                } else {
+                    for (let r = h; r < (list.length - 1); r++) {
+                        list[r] = list[(r + 1)];
+                    }
+                    list.pop();
+                }
+            }
+        }
+        new_list = JSON.stringify(list);
+        localStorage.setItem('list', new_list);
+        clearList((list.length +  1));
+        displayShoppingList();
+    }
+
 }
