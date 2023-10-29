@@ -78,6 +78,11 @@ aside {
   float: right;
 }
 
+div.btn-group button{
+  margin: 20px;
+  display: block;
+}
+
 div.Shopping_List {
   font-size: 20px;
   margin-bottom: 5vw;

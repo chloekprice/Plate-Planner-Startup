@@ -22,25 +22,21 @@
     
     <main>
       <div class="Shopping_List">
+        <script>initializeShoppingList()</script>
         <h1>Shopping List:</h1>
-   
-      <li class="item">apples</li>
-      <li class="item">chicken</li>
-      <li class="item">rice</li>
-      <li class="item">peanut butter</li>
-      <li class="item">chips</li>
-      <li class="item">bread</li>
-      <li class="item"> <input type="new item" />
+        <p><script>displayShoppingList()</script></p>
+        <li class="item"> <input type="text" id="new_item" placeholder="add new items here">
+          <button class="append" onclick="addToShoppingList()">Add to Shopping List</button>
         </li>
       </div>
       
       <aside>
-        <label for="Actions">Actions: </label>
-        <select id="Actions" name="Select">
-          <option>Reset List</option>
-          <option>Add more than one item</option>
-          <option>Delete item(s)</option>
-        </select>
+        <h2 for="Actions">Actions: </h2>
+        <div class="btn-group">
+          <button class="append" onclick="resetList()">Reset List</button>
+          <button class="append" onclick="addManyItems()">Add Multiple Items</button>
+          <button class="append" onclick="deleteItemst()">Delete Item(s)</button>
+        </div>
       </aside>
       
     </main>
