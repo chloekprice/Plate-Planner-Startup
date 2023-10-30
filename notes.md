@@ -70,6 +70,9 @@ notes:
 ![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG-7622.jpg?raw=true)
 ![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG-7623.jpg?raw=true)
 
+# Midterm Notes
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/midterm_notes.jpeg?raw=true)
+
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
 - index.html (most browsers look for this default page-- top level, usually login)
