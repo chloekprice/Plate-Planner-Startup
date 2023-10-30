@@ -71,7 +71,7 @@ notes:
 ![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG-7623.jpg?raw=true)
 
 # Midterm Notes
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/midterm_notes.jpeg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/midterm_notes.jpg?raw=true)
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
