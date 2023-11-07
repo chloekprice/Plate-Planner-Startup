@@ -17,6 +17,7 @@
 - remote login: ssh -i ~/OneDrive/Desktop/'!!'/"official_key.pem" ubuntu@plateplanner.click
 - DNS: http://plateplanner.click
 - Deploy: ./deployFiles.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h plateplanner.click -s simon
+- Deploy (with Node.js): ./deployService.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h yourdomain.click -s simon
 
 # HTML Code
 hyperlinks: 
