@@ -17,6 +17,7 @@
 - remote login: ssh -i ~/OneDrive/Desktop/'!!'/"official_key.pem" ubuntu@plateplanner.click
 - DNS: http://plateplanner.click
 - Deploy: ./deployFiles.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h plateplanner.click -s simon
+- Deploy (with Node.js): ./deployService.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h yourdomain.click -s simon
 
 # HTML Code
 hyperlinks: 
@@ -69,6 +70,9 @@ notes:
 ![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG-7621.jpg?raw=true)
 ![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG-7622.jpg?raw=true)
 ![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG-7623.jpg?raw=true)
+
+# Midterm Notes
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/midterm_notes.jpg?raw=true)
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)

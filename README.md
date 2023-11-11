@@ -32,5 +32,12 @@ For this deliverable I styled my HTML pages for the application.
 - Application elements - I made the elements of my application standout with coloring and appropriate whitespace.
 - Application text content - Imported a font used consistently throughout my application.
 - Application images - Moved the image on the main page to a background and animated it.
+## JavaScript Deliverable
+For this deliverable I implemented JavaScript so that the application works for a single use.
+
+- Login: When you log in, you are taken directly to the calendar page. The user's name is stored and displayed on the calendar page.
+- Database: Displayed the user's name, which is stored locally. Also, changes to the items on the calendar page and changes to the items on the shopping list page are stored for single use. I have not created a bridge for the information on the calendar to populate the shopping list, yet :/
+- WebSocket: I set an initialized list of the shopping list items. This will be replaced by WebSocket data to allow for realtime generation of the shopping list from the calendar.
+- Application logic: The user to able to edit the calendar. The user can also make changes to the shopping list.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
