@@ -1,15 +1,17 @@
+let list = []
+
+
 function initializeShoppingList() {
-    let shopping_list = ['apples', 'chicken', 'beef', 'tomatoes'];
-    let items = JSON.stringify(shopping_list);
-    localStorage.setItem('list', items);
-    displayShoppingList()
+    list = JSON.parse(localStorage.getItem('list'));
+    console.log(list);
+    this.displayShoppingList(list);
 }
 
 function displayShoppingList() {
-    let food = JSON.parse(localStorage.getItem('list'));
-    for (let t = 0; t < food.length; t++) {
+    console.log(list);
+    for (let t = 0; t < list.length; t++) {
         let html = '<li>';
-        html += food[t];
+        html += list[t];
         html += '</li';
         const add = document.getElementsByTagName('p')[0];
         add.insertAdjacentHTML("beforebegin", html);
@@ -22,19 +24,21 @@ function addToShoppingList() {
         firstItem = [new_item];
         new_list = JSON.stringify(firstItem);
         localStorage.setItem('list', new_list);
+        list = JSON.parse(localStorage.getItem('list'));
         displayShoppingList();
     } else {
         let list = JSON.parse(localStorage.getItem('list'));
         list.push(new_item);
-        new_list = JSON.stringify(list);
-        localStorage.setItem('list', new_list);
+        localStorage.setItem('list', JSON.stringify(list));
         clearList((list.length - 1));
+        list = JSON.parse(localStorage.getItem('list'));
         displayShoppingList();
     }
 }
 
-function clearList(p1) {
-    for (let w = 0; w < p1; w++) {
+function clearList(t) {
+    list = JSON.parse(localStorage.getItem('list'));
+    for (let w = 0; w < t; w++) {
         let rid = document.getElementsByTagName('li')[0];
         rid.remove();
     }
@@ -42,13 +46,13 @@ function clearList(p1) {
 
 function resetList() {
     console.log('reset');
-    clearList(JSON.parse(localStorage.getItem('list')).length);
+    clearList(list.length);
     localStorage.setItem('list', '');
+    list = JSON.parse(localStorage.getItem('list'));
 }
 
 function addManyItems() {
     console.log('add');
-
 }
 
 function deleteItems() {
@@ -57,7 +61,7 @@ function deleteItems() {
     if (localStorage.getItem('list') == '') {
         return;
     } else {
-        let list = JSON.parse(localStorage.getItem('list'));
+        list = JSON.parse(localStorage.getItem('list'));
         for (let h = 0; h < list.length; h++) {
             if (list[h] == delete_item) {
                 if (h == (list.length - 1)) {
@@ -70,10 +74,28 @@ function deleteItems() {
                 }
             }
         }
-        new_list = JSON.stringify(list);
-        localStorage.setItem('list', new_list);
+        localStorage.setItem('list', JSON.stringify(list));
         clearList((list.length +  1));
         displayShoppingList();
     }
 
 }
+
+async function loadList() {
+    let list = [];
+    try {
+      const response = await fetch('/api/list');
+      list = await response.json();
+  
+      // Save the list in case we go offline in the future
+      localStorage.setItem('list', JSON.stringify(list));
+    } catch {
+      // If there was an error then just use the last saved list
+      const listText = localStorage.getItem('list');
+      if (listText) {
+        list = JSON.parse(listText);
+      }
+    }
+  
+    displayShoppingList();
+  }

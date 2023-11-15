@@ -1,48 +1,35 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const app = express();
 
-// Third party middleware - Cookies
-app.use(cookieParser());
+// The service port. In production the frontend code is statically hosted by the service on the same port.
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
-app.post('/cookie/:name/:value', (req, res, next) => {
-  res.cookie(req.params.name, req.params.value);
-  res.send({cookie: `${req.params.name}:${req.params.value}`});
-});
+// JSON body parsing using built-in middleware
+app.use(express.json());
 
-app.get('/cookie', (req, res, next) => {
-  res.send({cookie: req.cookies});
-});
-
-// Creating your own middleware - logging
-app.use((req, res, next) => {
-  console.log(req.originalUrl);
-  next();
-});
-
-// Built in middleware - Static file hosting
+// Serve up the frontend static content hosting
 app.use(express.static('public'));
 
-// Routing middleware
-app.get('/store/:storeName', (req, res) => {
-  res.send({name: req.params.storeName});
+// Router for service endpoints
+const apiRouter = express.Router();
+app.use(`/api`, apiRouter);
+
+// GetIngredients
+apiRouter.get('/scores', (_req, res) => {
+  res.send(scores);
 });
 
-app.put('/st*/:storeName', (req, res) => res.send({update: req.params.storeName}));
-
-app.delete(/\/store\/(.+)/, (req, res) => res.send({delete: req.params[0]}));
-
-// Error middleware
-app.get('/error', (req, res, next) => {
-  throw new Error('Trouble in river city');
+// SubmitIngredients
+apiRouter.post('/score', (req, res) => {
+  scores = updateScores(req.body, scores);
+  res.send(scores);
 });
 
-app.use(function (err, req, res, next) {
-  res.status(500).send({type: err.name, message: err.message});
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
 });
 
-// Listening to a network port
-const port = 8080;
-app.listen(port, function () {
+app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

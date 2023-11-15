@@ -1,25 +1,47 @@
-function setUserName() {
-    const userWeek = document.getElementsByTagName('h1')[1]
-    userWeek.innerText = localStorage.getItem('user') + "'s Week";
-    console.log(localStorage.getItem('user'));
+let shopping_list = [];
+let list = "";
+
+function getUserName() {
+  return localStorage.getItem('user');
 }
 
-
+function setUserName() {
+    const userWeek = document.getElementsByTagName('h1')[1];
+    userWeek.innerText = this.getUserName() + "'s Week";
+}
 
 function addToList() {
     console.log('adding to List');
-    getMeals();
-    displayMeals();
+    list = list + this.makeList();
+    this.displayMeals();
 }
+
+async function saveIngredients() {
+    //const userName = this.getUserName();
+    try {
+      const response = await fetch('/api/save', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: list,
+      });
+
+      const list = await response.json();
+      localStorage.setItem('list', list);
+    } catch {
+      // If there was an error then just track scores locally
+      this.addToList();
+    }
+  }
 
 function clearPlates() {
     console.log('clearing plates');
-    emptyPlates();
-    displayMeals();
-    addInput();
+    this.emptyPlates();
+    this.displayMeals();
+    this.addInput();
 }
 
 function getMeals() {
+    let meals = []
     let mon_breakfast = document.getElementById("meal1").value;
     let mon_lunch = document.getElementById("meal2").value;
     let mon_dinner = document.getElementById("meal3").value;
@@ -41,6 +63,28 @@ function getMeals() {
     let sun_breakfast = document.getElementById("meal19").value;
     let sun_lunch = document.getElementById("meal20").value;
     let sun_dinner = document.getElementById("meal21").value;
+
+    meals.push(mon_breakfast)
+    meals.push(mon_lunch)
+    meals.push(mon_dinner)
+    meals.push(tues_breakfast)
+    meals.push(tues_lunch)
+    meals.push(tues_dinner)
+    meals.push(wed_breakfast)
+    meals.push(wed_lunch)
+    meals.push(wed_dinner)
+    meals.push(thurs_breakfast)
+    meals.push(thurs_lunch)
+    meals.push(thurs_dinner)
+    meals.push(fri_breakfast)
+    meals.push(fri_lunch)
+    meals.push(fri_dinner)
+    meals.push(sat_breakfast)
+    meals.push(sat_lunch)
+    meals.push(sat_dinner)
+    meals.push(sun_breakfast)
+    meals.push(sun_lunch)
+    meals.push(sun_dinner)
     
     localStorage.setItem('meal1', mon_breakfast);
     localStorage.setItem('meal2', mon_lunch);
@@ -63,6 +107,24 @@ function getMeals() {
     localStorage.setItem('meal19', sun_breakfast);
     localStorage.setItem('meal20', sun_lunch);
     localStorage.setItem('meal21', sun_dinner);
+
+    for (let i = 0; i < meals.length; i++) {
+      let meal = meals[i];
+      let count = 0;
+      for (let x = 0; x < meal.length; x++) {
+        let ingredient_start = x - count;
+        if (meal.slice(x, (x + 1)) == ",") {
+          shopping_list.push(meal.slice(ingredient_start, x));
+          count = -1;
+        }
+        if (x == meal.length - 1) {
+          shopping_list.push(meal.slice(ingredient_start, meal.length));
+        }
+        count += 1;
+      }
+    }
+   
+    localStorage.setItem("list", JSON.stringify(shopping_list));
 }
 
 function emptyPlates() {
@@ -109,6 +171,10 @@ function emptyPlates() {
     localStorage.setItem('meal19', sun_breakfast);
     localStorage.setItem('meal20', sun_lunch);
     localStorage.setItem('meal21', sun_dinner);
+
+    shopping_list = []
+    localStorage.setItem("list", JSON.stringify(shopping_list));
+
 }
 
 function displayMeals() {
@@ -134,4 +200,15 @@ function addInput() {
         data.insertAdjacentHTML("beforeend", html);
         num += 1;
     }
+}
+
+function makeList() {
+    this.getMeals();
+    shopping_list = JSON.parse(localStorage.getItem('list'))
+    return_str = ""
+    for (i = 0; i < shopping_list.length; i++) {
+      return_str = return_str + shopping_list[i] + "\n"
+    }
+    console.log(return_str);
+    return return_str;
 }
