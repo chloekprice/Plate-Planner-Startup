@@ -39,5 +39,12 @@ For this deliverable I implemented JavaScript so that the application works for 
 - Database: Displayed the user's name, which is stored locally. Also, changes to the items on the calendar page and changes to the items on the shopping list page are stored for single use. I have not created a bridge for the information on the calendar to populate the shopping list, yet :/
 - WebSocket: I set an initialized list of the shopping list items. This will be replaced by WebSocket data to allow for realtime generation of the shopping list from the calendar.
 - Application logic: The user to able to edit the calendar. The user can also make changes to the shopping list.
+## Service Deliverable
+For this deliverable, I created endpoints for retrieving the user's name and previous shopping list.
+- Node.js/Express HTTP service: check!
+- Static middleware for frontend: check!
+- Calls to third party endpoints: Did not have time or a reason to implement this.
+- Backend service endpoints: Placeholders/endpoints for getting the user name when they navigate back to the calendar page and retrieving their shopping list.
+- Frontend calls service endpoints: I did this using the fetch function in the calendar.js and shopping_list.js to grab the placeholder user name and placeholder shopping list.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
