@@ -1,4 +1,5 @@
-const express = require('express');
+import express from "express"
+
 const app = express();
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
@@ -10,19 +11,31 @@ app.use(express.json());
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
 
-// Router for service endpoints
-const apiRouter = express.Router();
-app.use(`/api`, apiRouter);
+app.get('/', (req, res) => {
+  res.send("welcome to plate planner!");
+});
 
-// GetIngredients
-apiRouter.get('/scores', (_req, res) => {
-  res.send(scores);
+// Router for service endpoints
+
+// Get grocery list
+let grocery_list = "apples, pears, oranges, bread, milk, eggs";
+app.get('/grocery_list', (req, res) => {
+  return res.json(grocery_list);
+});
+
+// Add to grocery list
+app.post('/grocery_list', (req, res) => {
+  return res.json("Successful!")
+});
+
+// Go to calendar page
+app.get('/calendar.html', (req, res) => {
+  res.sendFile("calendar.html", {root: 'public'});
 });
 
 // SubmitIngredients
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+app.get('/shopping_list.html', (req, res) => {
+  res.sendFile("shopping_list.html", {root: 'public'});
 });
 
 // Return the application's default page if the path is unknown

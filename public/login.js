@@ -8,3 +8,11 @@ function login() {
         window.location.href = 'calendar.html';
     })
 }
+
+async function loadList() {
+    const response = await fetch("/api/list")
+    const list = await response.json()
+  
+    // Modify the DOM to display the scores
+  }
+  

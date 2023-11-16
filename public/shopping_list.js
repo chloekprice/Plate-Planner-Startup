@@ -4,7 +4,14 @@ let list = []
 function initializeShoppingList() {
     list = JSON.parse(localStorage.getItem('list'));
     console.log(list);
-    this.displayShoppingList(list);
+}
+
+function getListStr() {
+    return localStorage.getItem("list");
+}
+
+function getList() {
+    return JSON.parse(localStorage.getItem('list'));
 }
 
 function displayShoppingList() {
@@ -13,7 +20,7 @@ function displayShoppingList() {
         let html = '<li>';
         html += list[t];
         html += '</li';
-        const add = document.getElementsByTagName('p')[0];
+        let add = document.getElementsByTagName('p')[0];
         add.insertAdjacentHTML("beforebegin", html);
     }
 }
@@ -22,12 +29,12 @@ function addToShoppingList() {
     let new_item = document.getElementById("new_item").value;
     if (localStorage.getItem('list') == '') {
         firstItem = [new_item];
-        new_list = JSON.stringify(firstItem);
+        let new_list = JSON.stringify(firstItem);
         localStorage.setItem('list', new_list);
         list = JSON.parse(localStorage.getItem('list'));
         displayShoppingList();
     } else {
-        let list = JSON.parse(localStorage.getItem('list'));
+        list = JSON.parse(localStorage.getItem('list'));
         list.push(new_item);
         localStorage.setItem('list', JSON.stringify(list));
         clearList((list.length - 1));
@@ -48,7 +55,7 @@ function resetList() {
     console.log('reset');
     clearList(list.length);
     localStorage.setItem('list', '');
-    list = JSON.parse(localStorage.getItem('list'));
+    list = [];
 }
 
 function addManyItems() {
@@ -75,7 +82,7 @@ function deleteItems() {
             }
         }
         localStorage.setItem('list', JSON.stringify(list));
-        clearList((list.length +  1));
+        clearList((list.length + 1));
         displayShoppingList();
     }
 
