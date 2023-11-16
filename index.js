@@ -11,21 +11,26 @@ app.use(express.json());
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
 
+
+// Router for service endpoints
 app.get('/', (req, res) => {
   res.send("welcome to plate planner!");
 });
 
-// Router for service endpoints
-
 // Get grocery list
-let grocery_list = "apples, pears, oranges, bread, milk, eggs";
 app.get('/grocery_list', (req, res) => {
+  let grocery_list = ["apples", "pears", "milk", "bread", "eggs"];
   return res.json(grocery_list);
 });
 
 // Add to grocery list
-app.post('/grocery_list', (req, res) => {
+app.post('/add_to_list', (req, res) => {
   return res.json("Successful!")
+});
+
+app.get('/user_info', (req, res) => {
+  let user_name = "Lisa";
+  return res.json(user_name);
 });
 
 // Go to calendar page

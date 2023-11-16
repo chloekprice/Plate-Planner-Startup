@@ -6,8 +6,10 @@ function getUserName() {
 }
 
 function setUserName() {
-    const userWeek = document.getElementsByTagName('h1')[1];
-    userWeek.innerText = this.getUserName() + "'s Week";
+  const userWeek = document.getElementsByTagName('h1')[1];
+  this.setUserDisplay();
+  const userName = localStorage.getItem('user');
+  userWeek.innerText = userName + "'s Week";
 }
 
 function getMeals() {
@@ -198,21 +200,50 @@ function makeList() {
   return return_str;
 }
 
-async function saveIngredients(list) {
-    const userName = this.getUserName();
-    const updatedList = {name: userName, list: list};
-    try {
-      const response = await fetch('/api/save', {
-        method: 'POST',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(updatedList)
-      });
+async function setUserDisplay() {
+  // const userName = this.getUserName();
+  // const updatedList = {name: userName, list: list};
+    // try {
+    //   const response = await fetch("/user_info");
+    //   const person = await response.json();
+    //   localStorage.setItem('user', person);
+    //   return this.getUserName();
+    // } catch {
+    //   // If there was an error then just display last user's info
+    //   return this.getUserName();
+    // }
+    const response = await fetch("/user_info");
+    const person = await response.json();
+    localStorage.setItem('user', person);
+}
 
-      const list = await response.json();
-      localStorage.setItem('list', JSON.stringify(list));
-    } catch {
-      // If there was an error then just track scores locally
-      this.addToList();
-    }
-  }
+
+// TO-DO: implement this
+
+// async function saveIngredients(list) {
+//     const userName = this.getUserName();
+//     const updatedList = {name: userName, list: list};
+//     try {
+//       const response = await fetch('/api/save', {
+//         method: 'POST',
+//         headers: {'content-type': 'application/json'},
+//         body: JSON.stringify(updatedList)
+//       });
+
+//       const list = await response.json();
+//       localStorage.setItem('list', JSON.stringify(list));
+//     } catch {
+//       // If there was an error then just track scores locally
+//       this.addToList();
+//     }
+// }
+
+function getItemsStr() {
+  return localStorage.getItem("list");
+}
+
+function getItemsList() {
+  return JSON.parse(localStorage.getItem('list'));
+}
+
 

@@ -4,6 +4,7 @@ let list = []
 function initializeShoppingList() {
     list = JSON.parse(localStorage.getItem('list'));
     console.log(list);
+    this.loadList();
 }
 
 function getListStr() {
@@ -89,20 +90,12 @@ function deleteItems() {
 }
 
 async function loadList() {
-    let list = [];
-    try {
-      const response = await fetch('/api/list');
-      list = await response.json();
-  
-      // Save the list in case we go offline in the future
-      localStorage.setItem('list', JSON.stringify(list));
-    } catch {
-      // If there was an error then just use the last saved list
-      const listText = localStorage.getItem('list');
-      if (listText) {
-        list = JSON.parse(listText);
-      }
+    const response = await fetch("/grocery_list");
+    const food_list = await response.json();
+    for (n = 0; n < food_list.length; n++) {
+        list.push(food_list[n]);
     }
-  
+    localStorage.setItem('list', JSON.stringify(list));
+    clearList(list.length - food_list.length);
     displayShoppingList();
-  }
+}
