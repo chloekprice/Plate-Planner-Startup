@@ -246,4 +246,4 @@ function getItemsList() {
   return JSON.parse(localStorage.getItem('list'));
 }
 
-
+module.exports = { getUserName };

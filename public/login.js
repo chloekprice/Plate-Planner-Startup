@@ -15,4 +15,6 @@ async function loadList() {
   
     // Modify the DOM to display the scores
   }
+
+
   

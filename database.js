@@ -1,23 +1,27 @@
-const config = require('./dbConfig.json');
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const { MongoClient } = require('mongodb');
+const config = require('./dbConfig.json');
 
-const userName = 'holowaychuk';
-const password = 'express';
-const hostname = 'startup.plateplanner.click'
-
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
+const db = client.db('startup');
+const groceryListsCollection = db.collection('grocery_lists');
 
-const collection = client.db('rental').collection('house');
+(async function testConnection() {
+    await client.connect();
+    await db.command({ ping: 1 });
+}) ().catch((ex) => {
+    console.log(`Unable to connect to the database with ${url} because ${ex.message}`);
+    process.exit(1);
+});
 
-const house = {
-    name: 'Beachfront views',
-    summary: 'From your bedroom to the beach, no shoes required',
-    property_type: 'Condo',
-    beds: 1,
-};
-await collection.insertOne(house);
+async function saveList(name, list){
+    const result = await groceryListsCollection.updateOne({userName:name}, {$set: {groceryList:list}});
+    return result;
+}
 
-const cursor = collection.find();
-const rentals = await cursor.toArray();
-rentals.forEach((i) => console.log(i));
+function getShoppingList(name) {
+    const query = groceryListsCollection.find({userName:name}, {_id:0, userName:0, groceryList:1});
+    return query.groceryList;
+}
+
+module.exports = { saveList, getShoppingList };

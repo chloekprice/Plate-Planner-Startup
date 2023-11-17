@@ -1,6 +1,7 @@
-import express from "express"
-
+import express from "express";
 const app = express();
+const DB = require('./database.js');
+const CAL = require('./public/calendar.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -18,13 +19,14 @@ app.get('/', (req, res) => {
 });
 
 // Get grocery list
-app.get('/grocery_list', (req, res) => {
-  let grocery_list = ["apples", "pears", "milk", "bread", "eggs"];
-  return res.json(grocery_list);
+app.get('/grocery_list', async (req, res) => {
+  let user = CAL.getUserName();
+  const userList = DB.getShoppingList(user);
+  res.send(userList);
 });
 
 // Add to grocery list
-app.post('/add_to_list', (req, res) => {
+app.post('/save_list', (req, res) => {
   return res.json("Successful!")
 });
 
