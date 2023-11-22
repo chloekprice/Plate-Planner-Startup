@@ -3,25 +3,32 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('startup');
-const groceryListsCollection = db.collection('grocery_lists');
+const dbName = 'startup';
+const colName = 'grocery_lists';
+const listCollection = client.db('startup').collection('grocery_lists');
 
 (async function testConnection() {
     await client.connect();
-    await db.command({ ping: 1 });
+    await client.db('startup').command({ ping: 1 });
 }) ().catch((ex) => {
     console.log(`Unable to connect to the database with ${url} because ${ex.message}`);
     process.exit(1);
 });
 
 async function saveList(name, list){
-    const result = await groceryListsCollection.updateOne({userName:name}, {$set: {groceryList:list}});
+    const result = await client.db(dbName).collection(colName).updateOne({userName: name}, {$set: {groceryList: list}});
     return result;
 }
 
-function getShoppingList(name) {
-    const query = groceryListsCollection.find({userName:name}, {_id:0, userName:0, groceryList:1});
-    return query.groceryList;
+async function getShoppingList(name) {
+    console.log(name);
+    return listCollection.findOne({userName:name});
+    // console.log(query.groceryList)
 }
 
-module.exports = { saveList, getShoppingList };
+async function createUserProfile(name) {
+    const success = await client.db(dbName).collection(colName).insertOne(name);
+    return success;
+} 
+
+module.exports = { saveList, getShoppingList, createUserProfile };

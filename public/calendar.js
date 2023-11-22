@@ -1,19 +1,51 @@
 let shopping_list = [];
-let list = "";
 
+// Member functions
 function getUserName() {
   return localStorage.getItem('user');
 }
-
 function setUserName() {
   const userWeek = document.getElementsByTagName('h1')[1];
-  this.setUserDisplay();
   const userName = localStorage.getItem('user');
   userWeek.innerText = userName + "'s Week";
 }
+function getItemsStr() {
+  let list_str = '';
+  let temp = JSON.parse(localStorage.getItem('list'))
+  for (let i = 0; i < temp.length; i ++) {
+    list_str = list_str + temp[i];
+  }
+  return temp;
+}
+function getItemsList() {
+  return JSON.parse(localStorage.getItem('list'));
+}
+function displayMeals() {
+  for (let i = 3; i < 24; i++) {
+      let data = 'meal'
+      let x = (i - 2);
+      data = data + x.toString();
+      let meal = document.getElementsByTagName('td')[i];
+      meal.innerHTML = localStorage.getItem(data);
+  }
+  
+}
+function saveListLocally() {
+  localStorage.setItem('list', shopping_list);
+}
 
+// Adding to List
+function addToList() {
+  console.log('adding to List');
+  shopping_list = this.getMeals();
+  localStorage.setItem('list', JSON.stringify(shopping_list));
+  this.saveIngredients();
+  this.displayMeals();
+  window.location.href = 'shopping_list.html';
+}
 function getMeals() {
   let meals = []
+  let new_list = [];
   let mon_breakfast = document.getElementById("meal1").value;
   let mon_lunch = document.getElementById("meal2").value;
   let mon_dinner = document.getElementById("meal3").value;
@@ -86,30 +118,42 @@ function getMeals() {
     for (let x = 0; x < meal.length; x++) {
       let ingredient_start = x - count;
       if (meal.slice(x, (x + 1)) == ",") {
-        shopping_list.push(meal.slice(ingredient_start, x));
+        new_list.push(meal.slice(ingredient_start, x));
         count = -1;
       }
       if (x == meal.length - 1) {
-        shopping_list.push(meal.slice(ingredient_start, meal.length));
+        new_list.push(meal.slice(ingredient_start, meal.length));
       }
       count += 1;
     }
   }
- 
-  localStorage.setItem("list", JSON.stringify(shopping_list));
+  return new_list;
 }
-
-function displayMeals() {
-  for (let i = 3; i < 24; i++) {
-      let data = 'meal'
-      let x = (i - 2);
-      data = data + x.toString();
-      let meal = document.getElementsByTagName('td')[i];
-      meal.innerHTML = localStorage.getItem(data);
+async function saveIngredients() {
+  let userInfo = {
+    "userName": this.getUserName(),
+    "userList": this.getItemsList(),
   }
-  
+  console.log("saving ingredients");
+  try {
+    let response = await fetch('/save_list', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    });
+    const created = await response.json();
+    console.log(created);
+  } catch {
+    // If there was an error then just track scores locally
+    console.log("could not save the shopping list on the database");
+  } finally {
+    this.saveListLocally();
+  }
 }
 
+// Clearing List
 function emptyPlates() {
   let mon_breakfast = "";
   let mon_lunch = "";
@@ -159,7 +203,6 @@ function emptyPlates() {
   localStorage.setItem("list", JSON.stringify(shopping_list));
 
 }
-
 function addInput() {
   let num = 1
   for (let y = 3; y < 24; y++) {
@@ -173,15 +216,6 @@ function addInput() {
       num += 1;
   }
 }
-
-function addToList() {
-    console.log('adding to List');
-    list = list + this.makeList();
-    // this.saveIngredients(list);
-    window.location.href = 'shopping_list.html';
-    this.displayMeals();
-}
-
 function clearPlates() {
   console.log('clearing plates');
   this.emptyPlates();
@@ -189,61 +223,4 @@ function clearPlates() {
   this.addInput();
 }
 
-function makeList() {
-  this.getMeals();
-  shopping_list = JSON.parse(localStorage.getItem('list'))
-  return_str = ""
-  for (i = 0; i < shopping_list.length; i++) {
-    return_str = return_str + shopping_list[i] + "\n"
-  }
-  console.log(return_str);
-  return return_str;
-}
-
-async function setUserDisplay() {
-  // const userName = this.getUserName();
-  // const updatedList = {name: userName, list: list};
-    // try {
-    //   const response = await fetch("/user_info");
-    //   const person = await response.json();
-    //   localStorage.setItem('user', person);
-    //   return this.getUserName();
-    // } catch {
-    //   // If there was an error then just display last user's info
-    //   return this.getUserName();
-    // }
-    const response = await fetch("/user_info");
-    const person = await response.json();
-    localStorage.setItem('user', person);
-}
-
-
-// TO-DO: implement this
-
-// async function saveIngredients(list) {
-//     const userName = this.getUserName();
-//     const updatedList = {name: userName, list: list};
-//     try {
-//       const response = await fetch('/api/save', {
-//         method: 'POST',
-//         headers: {'content-type': 'application/json'},
-//         body: JSON.stringify(updatedList)
-//       });
-
-//       const list = await response.json();
-//       localStorage.setItem('list', JSON.stringify(list));
-//     } catch {
-//       // If there was an error then just track scores locally
-//       this.addToList();
-//     }
-// }
-
-function getItemsStr() {
-  return localStorage.getItem("list");
-}
-
-function getItemsList() {
-  return JSON.parse(localStorage.getItem('list'));
-}
-
-module.exports = { getUserName };
+module.exports = { getUserName, getItemsStr, getItemsList };

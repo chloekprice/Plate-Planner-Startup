@@ -1,10 +1,11 @@
 let list = []
 
-
 function initializeShoppingList() {
-    list = JSON.parse(localStorage.getItem('list'));
-    console.log(list);
     this.loadList();
+}
+
+function getUser() {
+    return localStorage.getItem('user');
 }
 
 function getListStr() {
@@ -16,11 +17,12 @@ function getList() {
 }
 
 function displayShoppingList() {
-    console.log(list);
+    list = JSON.parse(localStorage.getItem('list'));
     for (let t = 0; t < list.length; t++) {
         let html = '<li>';
         html += list[t];
-        html += '</li';
+        html += '</li>';
+        console.log(html);
         let add = document.getElementsByTagName('p')[0];
         add.insertAdjacentHTML("beforebegin", html);
     }
@@ -59,10 +61,6 @@ function resetList() {
     list = [];
 }
 
-function addManyItems() {
-    console.log('add');
-}
-
 function deleteItems() {
     console.log('delete');
     let delete_item = document.getElementById("delete_item").value;
@@ -90,12 +88,26 @@ function deleteItems() {
 }
 
 async function loadList() {
-    const response = await fetch("/grocery_list");
-    const food_list = await response.json();
-    for (n = 0; n < food_list.length; n++) {
-        list.push(food_list[n]);
+    let userINFO = {
+        "userName": this.getUser(),
+    };
+    try {
+        console.log("trying this");
+        let response = await fetch('/api/grocery_list', {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(userINFO),
+        });
+        const updatedList = await response.json();
+        console.log(updatedList);
+        localStorage.setItem('list', JSON.stringify(updatedList));
+    } catch {
+        console.log('returning locally saved list');
+        const listStr = localStorage.getItem('list');
+        if (listStr) {
+            list = JSON.parse(listStr);
+        }
     }
-    localStorage.setItem('list', JSON.stringify(list));
-    clearList(list.length - food_list.length);
-    displayShoppingList();
-}
+  }

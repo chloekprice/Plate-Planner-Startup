@@ -1,7 +1,6 @@
-import express from "express";
+const express = require('express');
 const app = express();
 const DB = require('./database.js');
-const CAL = require('./public/calendar.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -12,6 +11,8 @@ app.use(express.json());
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
 
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
 
 // Router for service endpoints
 app.get('/', (req, res) => {
@@ -19,30 +20,29 @@ app.get('/', (req, res) => {
 });
 
 // Get grocery list
-app.get('/grocery_list', async (req, res) => {
-  let user = CAL.getUserName();
-  const userList = DB.getShoppingList(user);
-  res.send(userList);
+apiRouter.get('/grocery_list', async (req, res) => {
+  let userInfo = req.body;
+  console.log('hello');
+  let name = userInfo['userName'];
+  console.log(name);
+  const userList = await DB.getShoppingList(name);
+  // console.log(userList.groceryList);
+  res.send(userList.groceryList);
 });
 
-// Add to grocery list
-app.post('/save_list', (req, res) => {
-  return res.json("Successful!")
+// Save grocery list
+app.post('/save_list', async (req, res) => {
+  let userInfo = req.body;
+  let name = userInfo['userName'];
+  let list = userInfo['userList'];
+  const save = await DB.saveList(name, list);
+  res.send(save);
 });
 
-app.get('/user_info', (req, res) => {
-  let user_name = "Lisa";
-  return res.json(user_name);
-});
-
-// Go to calendar page
-app.get('/calendar.html', (req, res) => {
-  res.sendFile("calendar.html", {root: 'public'});
-});
-
-// SubmitIngredients
-app.get('/shopping_list.html', (req, res) => {
-  res.sendFile("shopping_list.html", {root: 'public'});
+// Create User
+app.post('/create_user', async (req, res) => {
+  const create = await DB.createUserProfile(req.body);
+  res.send(create);
 });
 
 // Return the application's default page if the path is unknown
