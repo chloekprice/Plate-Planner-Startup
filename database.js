@@ -21,9 +21,12 @@ async function saveList(name, list){
 }
 
 async function getShoppingList(name) {
-    console.log(name);
     return listCollection.findOne({userName:name});
-    // console.log(query.groceryList)
+}
+
+async function clearList(name){
+    const result = await client.db(dbName).collection(colName).updateOne({userName: name}, {$unset: {groceryList: ''}});
+    return result;
 }
 
 async function createUserProfile(name) {
@@ -31,4 +34,4 @@ async function createUserProfile(name) {
     return success;
 } 
 
-module.exports = { saveList, getShoppingList, createUserProfile };
+module.exports = { saveList, getShoppingList, createUserProfile, clearList };

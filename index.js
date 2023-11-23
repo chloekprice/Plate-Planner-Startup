@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 var apiRouter = express.Router();
-app.use(`/api`, apiRouter);
+app.use('/api', apiRouter);
 
 // Router for service endpoints
 app.get('/', (req, res) => {
@@ -21,11 +21,8 @@ app.get('/', (req, res) => {
 
 // Get grocery list
 apiRouter.get('/grocery_list', async (req, res) => {
-  let userInfo = req.body;
-  console.log('hello');
-  let name = userInfo['userName'];
-  console.log(name);
-  const userList = await DB.getShoppingList(name);
+  let user = req.query.name;
+  const userList = await DB.getShoppingList(user);
   // console.log(userList.groceryList);
   res.send(userList.groceryList);
 });
@@ -43,6 +40,14 @@ app.post('/save_list', async (req, res) => {
 app.post('/create_user', async (req, res) => {
   const create = await DB.createUserProfile(req.body);
   res.send(create);
+});
+
+// Clear grocery list
+app.post('/clear_list', async (req, res) => {
+  let userInfo = req.body;
+  let name = userInfo['userName'];
+  const clear = await DB.clearList(name);
+  res.send(clear);
 });
 
 // Return the application's default page if the path is unknown
