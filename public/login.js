@@ -9,17 +9,15 @@ function login() {
         window.location.href = 'calendar.html';
     })
 }
-
 function getUserName() {
     return localStorage.getItem('user');
 }
-
 async function createUser() {
     const userName = this.getUserName();
     const newUser = {userName: userName};
 
     try {
-      const response = await fetch('/create_user', {
+      const response = await fetch('/api/create_user', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(newUser),

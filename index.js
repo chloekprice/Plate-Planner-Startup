@@ -3,7 +3,7 @@ const app = express();
 const DB = require('./database.js');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -15,7 +15,7 @@ var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 // Router for service endpoints
-app.get('/', (req, res) => {
+apiRouter.get('/', (req, res) => {
   res.send("welcome to plate planner!");
 });
 
@@ -28,7 +28,7 @@ apiRouter.get('/grocery_list', async (req, res) => {
 });
 
 // Save grocery list
-app.post('/save_list', async (req, res) => {
+apiRouter.post('/save_list', async (req, res) => {
   let userInfo = req.body;
   let name = userInfo['userName'];
   let list = userInfo['userList'];
@@ -37,13 +37,13 @@ app.post('/save_list', async (req, res) => {
 });
 
 // Create User
-app.post('/create_user', async (req, res) => {
+apiRouter.post('/create_user', async (req, res) => {
   const create = await DB.createUserProfile(req.body);
   res.send(create);
 });
 
 // Clear grocery list
-app.post('/clear_list', async (req, res) => {
+apiRouter.post('/clear_list', async (req, res) => {
   let userInfo = req.body;
   let name = userInfo['userName'];
   const clear = await DB.clearList(name);
@@ -51,10 +51,10 @@ app.post('/clear_list', async (req, res) => {
 });
 
 // Return the application's default page if the path is unknown
-app.use((_req, res) => {
+apiRouter.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.listen(port, () => {
+apiRouter.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
