@@ -46,5 +46,10 @@ For this deliverable, I created endpoints for retrieving the user's name and pre
 - Calls to third party endpoints: Did not have time or a reason to implement this.
 - Backend service endpoints: Placeholders/endpoints for getting the user name when they navigate back to the calendar page and retrieving their shopping list.
 - Frontend calls service endpoints: I did this using the fetch function in the calendar.js and shopping_list.js to grab the placeholder user name and placeholder shopping list.
+## DB Deliverable
+For this deliverable I manipulated my app so all data is stored in a database.
+- MongoDB Atlas database created:  check!
+- Endpoints for data: send information to my Mongo database to be stored or retrieved,
+- Stores data in MongoDB: check!
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
