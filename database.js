@@ -1,5 +1,7 @@
 const { MongoClient } = require('mongodb');
 const config = require('./dbConfig.json');
+const bcrypt = require('bcrypt');
+const uuid = require('uuid');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
@@ -29,9 +31,25 @@ async function clearList(name){
     return result;
 }
 
-async function createUserProfile(name) {
-    const success = await client.db(dbName).collection(colName).insertOne(name);
+async function createUserProfile(name, email, password) {
+    // Hash the password before we insert it into the database
+    const passwordHash = await bcrypt.hash(password, 10);
+    const user = {
+        userName: name,
+        email: email,
+        password: passwordHash,
+        token: uuid.v4(),
+    };
+    const success = await client.db(dbName).collection(colName).insertOne(user);
     return success;
 } 
 
-module.exports = { saveList, getShoppingList, createUserProfile, clearList };
+function getUser(name) {
+    return client.db(dbName).collection(colName).findOne({ userName: name });
+  }
+
+function checkUser(email) {
+    return client.db(dbName).collection(colName).findOne({ email: email }); 
+}
+
+module.exports = { saveList, getShoppingList, createUserProfile, clearList, getUser, checkUser };

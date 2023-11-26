@@ -31,7 +31,7 @@ function displayMeals() {
   
 }
 function saveListLocally() {
-  localStorage.setItem('list', shopping_list);
+  localStorage.setItem('list', JSON.stringify(shopping_list));
 }
 
 // Adding to List
@@ -136,7 +136,7 @@ async function saveIngredients() {
   }
   console.log("saving ingredients");
   try {
-    let response = await fetch('/api/save_list', {
+    let response = await fetch('/save_list', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

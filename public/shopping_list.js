@@ -16,7 +16,7 @@ function getList() {
 }
 async function loadList() {
     let userINFO = this.getUser();
-    let link = 'api/grocery_list?name=' + userINFO
+    let link = 'https://startup.plateplanner.click/grocery_list?name=' + userINFO
     try {
         let response = await fetch(link, {
             Method: 'GET',
@@ -53,7 +53,7 @@ async function saveUpdatedList() {
     }
     console.log("saving ingredients");
     try {
-      let response = await fetch('/api/save_list', {
+      let response = await fetch('/save_list', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -148,7 +148,7 @@ async function emptyList() {
     }
     console.log("clearing ingredients");
     try {
-      let response = await fetch('/api/clear_list', {
+      let response = await fetch('/clear_list', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
