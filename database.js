@@ -44,8 +44,8 @@ async function createUserProfile(name, email, password) {
     return success;
 } 
 
-function getUser(name) {
-    return client.db(dbName).collection(colName).findOne({ userName: name });
+function getUser(check) {
+    return client.db(dbName).collection(colName).findOne(check);
   }
 
 function checkUser(email) {

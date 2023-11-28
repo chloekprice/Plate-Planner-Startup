@@ -43,9 +43,10 @@ apiRouter.post('/auth/create', async (req, res) => {
   }
 });
 
-// GetAuth token for the provided credentials
+// Get auth token for the provided credentials
 apiRouter.post('/auth/login', async (req, res) => {
-  const user = await DB.getUser(req.body.email);
+  console.log("logging in");
+  const user = await DB.checkUser(req.body.email);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       setAuthCookie(res, user.token);
@@ -56,12 +57,22 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// DeleteAuth token if stored in cookie
+// Delete auth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
 
+// Check user authorization
+apiRouter.get('/user/me', async (req, res) => {
+  authToken = req.cookies['token'];
+  const user = await DB.getUser({ token: authToken });
+  if (user) {
+    res.send({ userName: user.userName });
+    return;
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
 
 // Get grocery list
 apiRouter.get('/grocery_list', async (req, res) => {

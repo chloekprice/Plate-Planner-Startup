@@ -102,19 +102,47 @@ div.box:hover {
 
 h2 {
   color: black;
+  margin-bottom: 0;
 }
 
-p.instructions {
+#playerName {
+  color: white;
+  font-size: 2em;
+  margin-top: 0;
+}
+
+#instructions {
   color: black;
+}
+
+#loginControls {
+  display: flex;
+}
+
+#preexistingControls {
+  display: flex;
 }
 
 label {
   color: black;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+li {
+  margin-right: 2em;
+  margin-left: 1em;
+}
+
 button {
   color: white;
   background: black;
+  display: grid;
 }
 
 footer {

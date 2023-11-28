@@ -1,3 +1,21 @@
+(async () => {
+  const userName = localStorage.getItem('user');
+  if (userName) {
+    console.log("logged in!");
+    let display_name = document.getElementById('playerName');
+    if (display_name) {
+      display_name.textContent = userName;
+    }
+    this.setDisplay('instructions', 'none');
+    this.setDisplay('loginControls', 'none');
+    this.setDisplay('preexistingControls', 'block');
+  } else {
+    console.log("NOT logged in!");
+    this.setDisplay('instructions', 'block');
+    this.setDisplay('loginControls', 'block');
+    this.setDisplay('preexistingControls', 'none');
+  }
+})();
 function login() {
     const btn = document.querySelector('.old');
     btn.addEventListener('click', () => {
@@ -12,26 +30,9 @@ function createNewUser() {
     this.loginOrCreate(`/api/auth/create`);
   })
 }
-function getUserName() {
+function getCurrUser() {
     return localStorage.getItem('user');
 }
-// async function createUser() {
-//     const userName = this.getUserName();
-//     const newUser = {userName: userName};
-
-//     try {
-//       const response = await fetch('/create_user', {
-//         method: 'POST',
-//         headers: {'content-type': 'application/json'},
-//         body: JSON.stringify(newUser),
-//       });
-//       const created = await response.json();
-//       console.log(created);
-//     } catch {
-//       // If there was an error then just track scores locally
-//       console.log("could not save the user");
-//     }
-// } 
 async function loginOrCreate(endpoint) {
   const userName = document.querySelector('#name')?.value;
   const userEmail = document.querySelector('#email')?.value;
@@ -49,10 +50,56 @@ async function loginOrCreate(endpoint) {
   } else {
     const body = await response.json();
     console.log("sorry, there has been an error");
-    // const modalEl = document.querySelector('#msgModal');
-    // modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
-    // const msgModal = new bootstrap.Modal(modalEl, {});
-    // msgModal.show();
+    this.errMsg(body.msg);
   }
+}
+function plan() {
+  window.location.href = 'calendar.html';
+}
+function logout() {
+  localStorage.removeItem('user');
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  }).then(() => (window.location.href = '/'));
+}
+function setDisplay(controlId, display) {
+  let controls = document.getElementById(controlId);
+  controls.style.display = display;
+}
+async function navigateToCalendar() {
+  const response = await fetch('api/user/me', {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  if (response.ok) {
+    window.location.href = 'calendar.html';
+  } else {
+    console.log('sorry there has been an error');
+    const body = await response.json();
+    this.errMsg(body.msg);
+  }
+}
+async function navigateToList() {
+  const response = await fetch('api/user/me', {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  if (response.ok) {
+    window.location.href = 'shopping_list.html';
+  } else {
+    console.log('sorry there has been an error');
+    const body = await response.json();
+    this.errMsg(body.msg);
+  }
+}
+function navigateToHome() {
+  window.location.href = 'index.html';
+}
+function errMsg(error) {
+  alert(`${error}: Please login to continue`);
 }
   
