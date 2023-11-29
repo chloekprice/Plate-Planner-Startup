@@ -91,12 +91,6 @@ apiRouter.post('/save_list', async (req, res) => {
   res.send(save);
 });
 
-// Create User without authentification
-// apiRouter.post('/create_user', async (req, res) => {
-//   const create = await DB.createUserProfile(req.body);
-//   res.send(create);
-// });
-
 // Clear grocery list
 apiRouter.post('/clear_list', async (req, res) => {
   let userInfo = req.body;

@@ -1,3 +1,4 @@
+// Set up
 (async () => {
   const userName = localStorage.getItem('user');
   if (userName) {
@@ -16,23 +17,6 @@
     this.setDisplay('preexistingControls', 'none');
   }
 })();
-function login() {
-    const btn = document.querySelector('.old');
-    btn.addEventListener('click', () => {
-      console.log('clicked login');
-      this.loginOrCreate(`/api/auth/login`);
-  })
-}
-function createNewUser() {
-  const btn = document.querySelector('.new');
-  btn.addEventListener('click', () => {
-    console.log('clicked create');
-    this.loginOrCreate(`/api/auth/create`);
-  })
-}
-function getCurrUser() {
-    return localStorage.getItem('user');
-}
 async function loginOrCreate(endpoint) {
   const userName = document.querySelector('#name')?.value;
   const userEmail = document.querySelector('#email')?.value;
@@ -53,6 +37,32 @@ async function loginOrCreate(endpoint) {
     this.errMsg(body.msg);
   }
 }
+function login() {
+    const btn = document.querySelector('.old');
+    btn.addEventListener('click', () => {
+      console.log('clicked login');
+      this.loginOrCreate(`/api/auth/login`);
+  })
+}
+function createNewUser() {
+  const btn = document.querySelector('.new');
+  btn.addEventListener('click', () => {
+    console.log('clicked create');
+    this.loginOrCreate(`/api/auth/create`);
+  })
+}
+// Helper functions
+function getCurrUser() {
+    return localStorage.getItem('user');
+}
+function setDisplay(controlId, display) {
+  let controls = document.getElementById(controlId);
+  controls.style.display = display;
+}
+function errMsg(error) {
+  alert(`${error}: Please login to continue`);
+}
+// Buttons/Navigation
 function plan() {
   window.location.href = 'calendar.html';
 }
@@ -61,10 +71,6 @@ function logout() {
   fetch(`/api/auth/logout`, {
     method: 'delete',
   }).then(() => (window.location.href = '/'));
-}
-function setDisplay(controlId, display) {
-  let controls = document.getElementById(controlId);
-  controls.style.display = display;
 }
 async function navigateToCalendar() {
   const response = await fetch('api/user/me', {
@@ -98,8 +104,5 @@ async function navigateToList() {
 }
 function navigateToHome() {
   window.location.href = 'index.html';
-}
-function errMsg(error) {
-  alert(`${error}: Please login to continue`);
 }
   
