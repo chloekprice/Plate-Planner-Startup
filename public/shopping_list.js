@@ -1,11 +1,12 @@
 // Initialize 
-let list = []
 (async () => {
     this.loadList();
+    this.displayShoppingList();
 })();
 function initializeShoppingList() {
     this.loadList();
 }
+let list = [];
 
 // Member functions
 function getUser() {
@@ -39,10 +40,10 @@ async function loadList() {
     }
 }
 function displayShoppingList() {
-    list = JSON.parse(localStorage.getItem('list'));
-    for (let t = 0; t < list.length; t++) {
+    let temp = JSON.parse(localStorage.getItem('list'));
+    for (let t = 0; t < temp.length; t++) {
         let html = '<li>';
-        html += list[t];
+        html += temp[t];
         html += '</li>';
         console.log(html);
         let add = document.getElementsByTagName('p')[0];

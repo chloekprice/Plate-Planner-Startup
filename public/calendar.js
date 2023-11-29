@@ -2,6 +2,7 @@ let shopping_list = [];
 (async () => {
   if (JSON.parse(localStorage.getItem('list'))){
     this.displayMeals();
+    this.setUserName();
   }
 })();
 
