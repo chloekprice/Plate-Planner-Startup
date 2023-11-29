@@ -34,7 +34,7 @@ async function loginOrCreate(endpoint) {
   } else {
     const body = await response.json();
     console.log("sorry, there has been an error");
-    this.errMsg(`${body.mdg}: User already exists`);
+    this.errMsg(`${body.mdg}: Issue with user`);
   }
 }
 function login() {
@@ -135,7 +135,7 @@ async function navigateToCalendar() {
   } else {
     console.log('sorry there has been an error');
     const body = await response.json();
-    this.errMsg(`${error}: Please login to continue`);
+    this.errMsg(`${body.msg}: Please login to continue`);
   }
 }
 async function navigateToList() {
@@ -150,7 +150,7 @@ async function navigateToList() {
   } else {
     console.log('sorry there has been an error');
     const body = await response.json();
-    this.errMsg(`${error}: Please login to continue`);
+    this.errMsg(`${body.msg}: Please login to continue`);
   }
 }
 function navigateToHome() {

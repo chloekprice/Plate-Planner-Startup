@@ -77,8 +77,9 @@ apiRouter.get('/user/me', async (req, res) => {
 // Get grocery list
 apiRouter.get('/grocery_list', async (req, res) => {
   let user = req.query.name;
+  console.log(user);
   const userList = await DB.getShoppingList(user);
-  // console.log(userList.groceryList);
+  console.log(userList.groceryList);
   res.send(userList.groceryList);
 });
 

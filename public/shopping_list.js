@@ -1,12 +1,10 @@
 // Initialize 
-(async () => {
-    this.loadList();
-    this.displayShoppingList();
-})();
+let list = [];
 function initializeShoppingList() {
     this.loadList();
+    this.displayShoppingList();
+    localStorage.setItem('list', JSON.stringify(list));
 }
-let list = [];
 
 // Member functions
 function getUser() {
@@ -20,7 +18,8 @@ function getList() {
 }
 async function loadList() {
     let userINFO = this.getUser();
-    let link = 'https://startup.plateplanner.click/grocery_list?name=' + userINFO
+    console.log(userINFO);
+    let link = 'https://startup.plateplanner.click/api/grocery_list?name=' + userINFO
     try {
         let response = await fetch(link, {
             Method: 'GET',
@@ -40,10 +39,10 @@ async function loadList() {
     }
 }
 function displayShoppingList() {
-    let temp = JSON.parse(localStorage.getItem('list'));
-    for (let t = 0; t < temp.length; t++) {
+    list = JSON.parse(localStorage.getItem('list'));
+    for (let t = 0; t < list.length; t++) {
         let html = '<li>';
-        html += temp[t];
+        html += list[t];
         html += '</li>';
         console.log(html);
         let add = document.getElementsByTagName('p')[0];

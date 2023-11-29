@@ -1,8 +1,4 @@
 let shopping_list = [];
-(async () => {
-  this.setUserName();
-})();
-
 // Member functions
 function getUserName() {
   return localStorage.getItem('user');
@@ -39,10 +35,15 @@ function saveListLocally() {
 // Adding to List
 function addToList() {
   console.log('adding to List');
-  shopping_list = this.getMeals();
+  shopping_list = JSON.parse(localStorage.getItem('list'));
+  let add_list = this.getMeals();
+  console.log(add_list);
+  for (let i = 0; i < add_list.length; i++) {
+    shopping_list.push(add_list[i]);
+  }
+  console.log(shopping_list);
   localStorage.setItem('list', JSON.stringify(shopping_list));
   this.saveIngredients();
-  this.displayMeals();
   window.location.href = 'shopping_list.html';
 }
 function getMeals() {
@@ -223,8 +224,6 @@ function clearPlates() {
   this.emptyPlates();
   this.displayMeals();
   this.addInput();
-  localStorage.setItem('list', JSON.stringify([]));
-  shopping_list = [];
 }
 
 module.exports = { getUserName, getItemsStr, getItemsList };
