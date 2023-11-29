@@ -1,5 +1,8 @@
 // Initialize 
 let list = []
+(async () => {
+    this.loadList();
+})();
 function initializeShoppingList() {
     this.loadList();
 }
@@ -94,7 +97,6 @@ function addToShoppingList() {
         this.saveUpdatedList();
         console.log(list);
         this.clearList((list.length - 1));
-        // list = JSON.parse(localStorage.getItem('list'));
         this.displayShoppingList();
     }
 }
@@ -104,7 +106,6 @@ function deleteItems() {
     if (localStorage.getItem('list') == '') {
         return;
     } else {
-        // this.loadList();
         list = JSON.parse(localStorage.getItem('list'));
         for (let h = 0; h < list.length; h++) {
             if (list[h] == delete_item) {

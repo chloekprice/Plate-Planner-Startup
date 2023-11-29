@@ -1,4 +1,9 @@
 let shopping_list = [];
+(async () => {
+  if (JSON.parse(localStorage.getItem('list'))){
+    this.displayMeals();
+  }
+})();
 
 // Member functions
 function getUserName() {
