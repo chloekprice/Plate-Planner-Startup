@@ -1,9 +1,6 @@
 let shopping_list = [];
 (async () => {
-  if (JSON.parse(localStorage.getItem('list'))){
-    this.displayMeals();
-    this.setUserName();
-  }
+  this.setUserName();
 })();
 
 // Member functions
@@ -34,7 +31,6 @@ function displayMeals() {
       let meal = document.getElementsByTagName('td')[i];
       meal.innerHTML = localStorage.getItem(data);
   }
-  
 }
 function saveListLocally() {
   localStorage.setItem('list', JSON.stringify(shopping_list));
@@ -227,6 +223,8 @@ function clearPlates() {
   this.emptyPlates();
   this.displayMeals();
   this.addInput();
+  localStorage.setItem('list', JSON.stringify([]));
+  shopping_list = [];
 }
 
 module.exports = { getUserName, getItemsStr, getItemsList };
