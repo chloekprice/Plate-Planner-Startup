@@ -51,5 +51,11 @@ For this deliverable I manipulated my app so all data is stored in a database.
 - MongoDB Atlas database created:  check!
 - Endpoints for data: send information to my Mongo database to be stored or retrieved,
 - Stores data in MongoDB: check!
+## Login Deliverable
+For this deliverable I made restrictions based on user creation. I also allowed for user sign in and sign out.
+- User registration: Users are able to create a new account in the database
+- Existing user: Users that have already made an account can login and access previous data
+- Use MongoDB to store credentials: Everything is stored in MongoDB
+- Restricts functionality: A user that has not been created cannot access the calendar or shopping list pages.
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
