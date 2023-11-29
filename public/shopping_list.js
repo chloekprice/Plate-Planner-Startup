@@ -53,7 +53,7 @@ async function saveUpdatedList() {
     }
     console.log("saving ingredients");
     try {
-      let response = await fetch('/save_list', {
+      let response = await fetch('/api/save_list', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
