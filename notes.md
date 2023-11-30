@@ -33,10 +33,10 @@ default input color:
 <input type="color" name="varColor" id="color" value="[hex code]" />
 ```
 ## Handwritten Notes
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7604.jpg?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7605.jpg?raw=true)
-![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7606.jpg?raw=true)
-![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7607.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/images/IMG_7604.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG_7605.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/images/IMG_7606.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/images/IMG_7607.jpg?raw=true)
 
 
 # CSS Code
@@ -54,25 +54,25 @@ notes:
 - use @media to hide content when the screen is too small
 - use @keyframe for animation
 ## Handwritten Notes
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7608.jpg?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7609.jpg?raw=true)
-![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG_7610.jpg?raw=true)
-![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG_7611.jpg?raw=true)
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG_7612.jpg?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG_7613.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/images/IMG_7608.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG_7609.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/images/IMG_7610.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/images/IMG_7611.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/images/IMG_7612.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG_7613.jpg?raw=true)
 
 # JavaScript Code
 
 ## Handwritten Notes
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG-7618.jpg?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG-7619.jpg?raw=true)
-![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/IMG-7620.jpg?raw=true)
-![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/IMG-7621.jpg?raw=true)
-![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/IMG-7622.jpg?raw=true)
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/IMG-7623.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/images/IMG-7618.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG-7619.jpg?raw=true)
+![HTML Notes 3](https://github.com/chloekprice/startup/blob/main/images/IMG-7620.jpg?raw=true)
+![HTML Notes 4](https://github.com/chloekprice/startup/blob/main/images/IMG-7621.jpg?raw=true)
+![HTML Notes 1](https://github.com/chloekprice/startup/blob/main/images/IMG-7622.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG-7623.jpg?raw=true)
 
 # Midterm Notes
-![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/midterm_notes.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/midterm_notes.jpg?raw=true)
 
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
