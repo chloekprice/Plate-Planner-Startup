@@ -57,5 +57,11 @@ For this deliverable I made restrictions based on user creation. I also allowed 
 - Existing user: Users that have already made an account can login and access previous data
 - Use MongoDB to store credentials: Everything is stored in MongoDB
 - Restricts functionality: A user that has not been created cannot access the calendar or shopping list pages.
+## WebSockets Deliverable
+For this deliverable I used webSocket to update user actions in realtime
+- Backend listens for WebSocket connection: check!
+- Frontend makes WebSocket connection: check!
+- Data sent over WebSocket connection: check!
+- WebSocket data displayed: Messages are displayed whenever any user adds to their grocery list or resets it
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
