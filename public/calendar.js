@@ -7,6 +7,31 @@ function setUserName() {
   const userWeek = document.getElementsByTagName('h1')[1];
   const userName = localStorage.getItem('user');
   userWeek.innerText = userName + "'s Week";
+
+  //initialize shopping list
+  this.getSavedList();
+}
+async function getSavedList() {
+  let userINFO = this.getUserName();
+  let link = '/api/grocery_list?name=' + userINFO
+  // let link = 'https://startup.plateplanner.click/api/grocery_list?name=' + userINFO
+  try {
+      let response = await fetch(link, {
+          Method: 'GET',
+          Headers: {
+              'content-type': 'application/json',
+          },
+      });
+      const savedList = await response.json();
+      localStorage.setItem('list', JSON.stringify(savedList));
+      shopping_list = savedList;
+  } catch {
+      console.log('returning locally saved list');
+      const listStr = localStorage.getItem('list');
+      if (listStr) {
+          shopping_list = JSON.parse(listStr);
+      }
+  }
 }
 function getItemsStr() {
   let list_str = '';
@@ -36,15 +61,17 @@ function saveListLocally() {
 function addToList() {
   console.log('adding to List');
   shopping_list = JSON.parse(localStorage.getItem('list'));
+  if (shopping_list === null) {
+    shopping_list = [];
+  }
   let add_list = this.getMeals();
   console.log(add_list);
   for (let i = 0; i < add_list.length; i++) {
     shopping_list.push(add_list[i]);
   }
-  console.log(shopping_list);
   localStorage.setItem('list', JSON.stringify(shopping_list));
   this.saveIngredients();
-  window.location.href = 'shopping_list.html';
+  setTimeout(() => { window.location.href = 'shopping_list.html' }, 1000)
 }
 function getMeals() {
   let meals = []
@@ -138,6 +165,7 @@ async function saveIngredients() {
     "userList": this.getItemsList(),
   }
   console.log("saving ingredients");
+  console.log(userInfo);
   try {
     let response = await fetch('/api/save_list', {
       method: 'POST',

@@ -1,9 +1,14 @@
 // Initialize 
 let list = [];
+let socket;
+// Event messages
+const AddShoppingList = 'listAddedTo';
+const ResetShoppingList = 'listReset';
 function initializeShoppingList() {
-    this.loadList();
+    list = JSON.parse(localStorage.getItem('list'));
     this.displayShoppingList();
-    localStorage.setItem('list', JSON.stringify(list));
+    this.configureWebSocket();  
+
 }
 
 // Member functions
@@ -18,8 +23,8 @@ function getList() {
 }
 async function loadList() {
     let userINFO = this.getUser();
-    console.log(userINFO);
-    let link = 'https://startup.plateplanner.click/api/grocery_list?name=' + userINFO
+    let link = '/api/grocery_list?name=' + userINFO
+    // let link = 'https://startup.plateplanner.click/api/grocery_list?name=' + userINFO
     try {
         let response = await fetch(link, {
             Method: 'GET',
@@ -44,7 +49,6 @@ function displayShoppingList() {
         let html = '<li>';
         html += list[t];
         html += '</li>';
-        console.log(html);
         let add = document.getElementsByTagName('p')[0];
         add.insertAdjacentHTML("beforebegin", html);
     }
@@ -89,16 +93,15 @@ function addToShoppingList() {
         this.saveUpdatedList();
         this.displayShoppingList();
     } else {
-        // this.loadList();
         list = JSON.parse(localStorage.getItem('list'));
         list.push(new_item);
-        console.log(list);
         localStorage.setItem('list', JSON.stringify(list));
         this.saveUpdatedList();
-        console.log(list);
         this.clearList((list.length - 1));
         this.displayShoppingList();
     }
+    // Let other users know a shopping list has been added to
+    this.broadcastEvent(this.getUser(), AddShoppingList, new_item);
 }
 function deleteItems() {
     console.log('delete');
@@ -134,6 +137,8 @@ function resetList() {
     localStorage.setItem('list', '');
     list = [];
     this.emptyList();
+    // Let other players know the list was reset
+    this.broadcastEvent(this.getUser(), ResetShoppingList, {});
 }
 function clearList(t) {
     list = JSON.parse(localStorage.getItem('list'));
@@ -149,7 +154,7 @@ async function emptyList() {
     }
     console.log("clearing ingredients");
     try {
-      let response = await fetch('/clear_list', {
+      let response = await fetch('/api/clear_list', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -166,5 +171,41 @@ async function emptyList() {
     }
 }
 
+// Peer-to-Peer Communication
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+      this.displayMsg('system', 'user', 'connected');
+      console.log('opening');
+    };
+    socket.onclose = (event) => {
+      this.displayMsg('system', 'user', 'disconnected');
+      console.log('closing')
+    };
+    socket.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.type === ResetShoppingList) {
+        this.displayMsg('system', msg.from, `reset their shopping list`);
+      } else if (msg.type === AddShoppingList) {
+        this.displayMsg('system', msg.from, `added ${msg.value} to their shopping list`);
+      } 
+    };
+}
 
+function displayMsg(cls, from, msg) {
+    const chatText = document.querySelector('#player-messages');
+    chatText.innerHTML =
+      `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+}
+
+function broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    console.log("sending")
+    socket.send(JSON.stringify(event));
+}
 

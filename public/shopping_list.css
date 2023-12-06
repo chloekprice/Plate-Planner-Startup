@@ -83,6 +83,23 @@ div.btn-group button{
   display: block;
 }
 
+#player-messages {
+  padding-top: 0.25em;
+  opacity: 0.7;
+}
+
+.event {
+  color: rgb(69, 69, 69);
+}
+
+.player-event {
+  color: black;
+}
+
+.system-event {
+  color: white;
+}
+
 div.Shopping_List {
   font-size: 20px;
   margin-bottom: 5vw;

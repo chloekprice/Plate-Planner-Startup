@@ -4,6 +4,8 @@ const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const authCookieName = 'token';
+const { peerProxy } = require('./peerProxy.js');
+
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -77,9 +79,7 @@ apiRouter.get('/user/me', async (req, res) => {
 // Get grocery list
 apiRouter.get('/grocery_list', async (req, res) => {
   let user = req.query.name;
-  console.log(user);
   const userList = await DB.getShoppingList(user);
-  console.log(userList.groceryList);
   res.send(userList.groceryList);
 });
 
@@ -113,6 +113,8 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
