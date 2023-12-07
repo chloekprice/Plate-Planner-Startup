@@ -18,6 +18,7 @@
 - DNS: http://plateplanner.click
 - Deploy: ./deployFiles.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h plateplanner.click -s simon
 - Deploy (with Node.js): ./deployService.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h yourdomain.click -s simon
+- Deploy (with React): ./deployReact.sh -k ~/OneDrive/Desktop/'!!'/"official_key.pem" -h plateplanner.click -s simon
 
 # HTML Code
 hyperlinks: 
