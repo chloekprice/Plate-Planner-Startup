@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="shopping_list.css" />
+    <script src="shopping_list.js"></script>
+    <title>Plate Planner</title>
+  </head>
+  
+  <body>
+    <header>
+      <div class="logo"><h1>Plate Planner</h1></div>
+      <div class="pages"><a class="bloob" href="index.html">Home</a></div>
+      <div class="pages"><a class="bloob" href="calendar.html">Calendar</a></div>
+      <div class="pages"><a class="bloob" href="shopping_list.html">Shopping List</a></div>
+   </header>
+    
+    <main>
+      <div class="Shopping_List">
+        <h1>Shopping List:</h1>
+        <p><script>initializeShoppingList()</script></p>
+        <p class="item"> <input type="text" id="new_item" placeholder="add new items here">
+          <button class="append" onclick="addToShoppingList()">Add to List</button>
+        </p>
+        <p class="item"> <input type="text" id="delete_item" placeholder="enter item to be deleted">
+          <button class="append" onclick="deleteItems()">Delete Item</button>
+        </p>
+      </div>
+      
+      <aside>
+        <h2 for="Actions">Actions: </h2>
+        <div class="btn-group">
+          <button class="append" onclick="resetList()">Reset List</button>
+          <!-- <button class="append" onclick="addManyItems()">Add Multiple Items</button>
+          <button class="append" onclick="deleteItems()">Delete Item(s)</button> -->
+        </div>
+        <div id="player-messages"></div>
+      </aside>
+      
+    </main>
+    
+     <footer>
+      <span class="test-reset">Chloe Price</span>
+      <a href="https://github.com/chloekprice/startup.git">GitHub</a>
+    </footer>
+
+  </body>
+</html>
