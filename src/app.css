@@ -6,7 +6,7 @@ body {
   background: #B0A9B7;
   color: white;
   
-  font-family: 'Shadows Into Light', cursive;
+  /* font-family: 'Shadows Into Light', cursive; */
   
   display: flex;
   flex-direction: column;
@@ -57,6 +57,7 @@ div.logo {
 div.pages {
   padding: 2vw;
   margin-top: 1vw;
+  margin-left: 3vw;
 }
 
 .slide {
