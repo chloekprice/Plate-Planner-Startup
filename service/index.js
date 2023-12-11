@@ -61,12 +61,14 @@ apiRouter.post('/auth/login', async (req, res) => {
 
 // Delete auth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
+  console.log('logging out');
   res.clearCookie(authCookieName);
   res.status(204).end();
 });
 
 // Check user authorization
 apiRouter.get('/user/me', async (req, res) => {
+  console.log('getting token');
   authToken = req.cookies['token'];
   const user = await DB.getUser({ token: authToken });
   if (user) {
@@ -78,6 +80,7 @@ apiRouter.get('/user/me', async (req, res) => {
 
 // Get grocery list
 apiRouter.get('/grocery_list', async (req, res) => {
+  console.log('grocery_list');
   let user = req.query.name;
   const userList = await DB.getShoppingList(user);
   res.send(userList.groceryList);
@@ -85,6 +88,7 @@ apiRouter.get('/grocery_list', async (req, res) => {
 
 // Save grocery list
 apiRouter.post('/save_list', async (req, res) => {
+  console.log('save_list');
   let userInfo = req.body;
   let name = userInfo['userName'];
   let list = userInfo['userList'];
