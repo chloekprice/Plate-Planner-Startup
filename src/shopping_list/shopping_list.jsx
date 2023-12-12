@@ -59,15 +59,12 @@ export function ShoppingList() {
           <Button variant='dark' onClick={() => deleteItem()}>Delete Item</Button>
           <Button variant='dark' onClick={() => addItem()}>Add Item</Button>
         </div>
-
       </div>
-
-
 
       <aside>
         <h2 for="Actions">Actions: </h2>
         <div className="btn-group">
-        <Button variant='dark' onClick={() => resetList()}>Reset List</Button>
+          <Button variant='dark' onClick={() => resetList()}>Reset List</Button>
         </div>
         <div id="player-messages"></div>
       </aside>
