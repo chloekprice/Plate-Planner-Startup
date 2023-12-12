@@ -1,0 +1,53 @@
+main{
+flex: 1;
+font-size: 20px;
+
+display: flex;
+flex-direction: row;
+align-items: left;
+justify-content: left;
+
+color: black;
+}
+
+aside {
+width: 30%;
+padding-left: 2vw;
+margin-left: 40vw;
+margin-top: 5vw;
+float: right;
+}
+
+div.btn-group button{
+margin-top: 1vw;
+display: block;
+}
+
+#player-messages {
+padding-top: 0.25em;
+opacity: 0.7;
+}
+
+.event {
+color: rgb(69, 69, 69);
+}
+
+.player-event {
+color: black;
+}
+
+.system-event {
+color: white;
+}
+
+div.Shopping_List {
+font-size: 20px;
+margin-bottom: 5vw;
+margin-left: 5vw;
+}
+
+@media screen and (max-width: 700px) {
+aside {
+    display: none;
+}
+}

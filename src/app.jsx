@@ -12,11 +12,11 @@ export default function App() {
   <BrowserRouter>
     <div>
         <header>
-            <div class="logo"><h1>Plate Planner</h1></div>
+            <div className="logo"><h1>Plate Planner</h1></div>
             {/* <div class="pages" onclick="navigateToHome()">Home</div>
             <div class="pages" onclick="navigateToCalendar()">Calendar</div>
             <div class="pages" onclick="navigateToList()">Shopping List</div> */}
-            <div class='pages'>
+            <div className='pages'>
                 <NavLink to=''>Home</NavLink>
                 <NavLink to='calendar'>Calendar</NavLink>
                 <NavLink to='shopping_list'>Shopping List</NavLink>
@@ -29,7 +29,7 @@ export default function App() {
             <Route path='*' element={<NotFound />} />
         </Routes>
         <footer>
-        <span class="test-reset">Chloe Price</span>
+        <span className="test-reset">Chloe Price</span>
         <a href="https://github.com/chloekprice/startup.git">GitHub</a>
         </footer>
     </div>
