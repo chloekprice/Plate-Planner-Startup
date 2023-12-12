@@ -38,7 +38,11 @@ export function ShoppingList() {
     
   }
 
-  function deleteList() {
+  function deleteItem() {
+
+  }
+
+  function addItem() {
 
   }
 
@@ -48,12 +52,22 @@ export function ShoppingList() {
       <div className="Shopping_List">
         <h2>Shopping List:</h2>
         <ul>{shopping_list}</ul>
+        <div class="input-group input-group-sm mb-3">
+          <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+        </div>
+        <div className='actions'>
+          <Button variant='dark' onClick={() => deleteItem()}>Delete Item</Button>
+          <Button variant='dark' onClick={() => addItem()}>Add Item</Button>
+        </div>
+
       </div>
+
+
+
       <aside>
         <h2 for="Actions">Actions: </h2>
         <div className="btn-group">
         <Button variant='dark' onClick={() => resetList()}>Reset List</Button>
-        <Button variant='dark' onClick={() => deleteList()}>Delete List</Button>
         </div>
         <div id="player-messages"></div>
       </aside>
