@@ -16,9 +16,11 @@ export default function App() {
             {/* <div class="pages" onclick="navigateToHome()">Home</div>
             <div class="pages" onclick="navigateToCalendar()">Calendar</div>
             <div class="pages" onclick="navigateToList()">Shopping List</div> */}
-            <NavLink class='pages' to=''>Home</NavLink>
-            <NavLink class='pages' to='calendar'>Calendar</NavLink>
-            <NavLink class='pages' to='shopping_list'>Shopping List</NavLink>
+            <div class='pages'>
+                <NavLink to=''>Home</NavLink>
+                <NavLink to='calendar'>Calendar</NavLink>
+                <NavLink to='shopping_list'>Shopping List</NavLink>
+            </div>
         </header>
         <Routes>
             <Route path='/' element={<Login />} exact />
