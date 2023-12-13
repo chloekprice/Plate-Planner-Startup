@@ -2,7 +2,11 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import './login.css';
 
-export function Login() {
+import { Unauthenticated } from './Unauthenticated';
+import { Authenticated } from './Authenticated';
+import { AuthState } from './AuthState';
+
+export function Login({ userName, authState, onAuthChange }) {
   return (
     <section className="slide">
       <main>
