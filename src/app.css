@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    width: 100%;
   }
   
 body {
@@ -13,6 +14,7 @@ body {
   margin-left: 0;
   min-width: 375px;
   height: 100vh;
+  margin-right:0;
 }
 
 a:link {
@@ -63,112 +65,20 @@ div.pages {
   column-gap: 3vw;
 }
 
-.slide {
-  animation: plates 2s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes plates {
-  0% {
-    background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
-    background-size: contain;
-    background-origin: padding-box;
-    background-position-x: left;
-  }
-  
-  100% {
-    background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
-    background-size: contain;
-    background-origin: padding-box;
-    background-position-x: right;
-  }
-}
-
-div.login {
-  padding: 150px;
-  margin: 10%;
-  margin-bottom: 5%;
-}
-
-div.box {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  background: rgba(176, 176, 176, 0.8);
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-div.box:hover {
-  background: rgb(176, 176, 176);
-}
-
-h2 {
-  color: black;
-  margin-bottom: 0;
-}
-
-#playerName {
-  color: white;
-  font-size: 2em;
-  margin-top: 0;
-}
-
-#instructions {
-  color: black;
-}
-
-#loginControls {
-  display: flex;
-}
-
-#preexistingControls {
-  display: flex;
-}
-
-label {
-  color: black;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
-li {
-  margin-right: 2em;
-  margin-left: 1em;
-}
-
-button {
-  color: white;
-  background: black;
-  display: grid;
-}
-
 footer {
   background: black;
   color: white;
   position: fixed;
-  left: 0;
   bottom: 0;
-  width: 100%;
-  font-size: 1em;
-  padding: 3vw;
-  margin-bottom: 0em;
-
-  flex: 0 30px;
-  
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  align-items: right;
+  min-width: 100%;
+  max-width: 100%;
 }
 
-span.test-reset{
-  margin-right: 90%;
+@media (max-height: 600px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
 }

@@ -1,0 +1,98 @@
+.slide {
+    animation: plates 10s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes plates {
+    0% {
+      background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
+      background-size: contain;
+      background-origin: padding-box;
+      background-position-x: 0%;
+    }
+
+    25% {
+        background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
+        background-size: contain;
+        background-origin: padding-box;
+        background-position-x: 50%; 
+    }
+
+    50% {
+        background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
+        background-size: contain;
+        background-origin: padding-box;
+        background-position-x: 100%; 
+    }
+
+    75% {
+        background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
+        background-size: contain;
+        background-origin: padding-box;
+        background-position-x: 150%; 
+    }
+    
+    100% {
+      background-image: url("https://www.pngarts.com/files/8/White-Dinner-Plate-PNG-Image-Background.png");
+      background-size: contain;
+      background-origin: padding-box;
+      background-position-x: 200%;
+    }
+  }
+  
+  div.login {
+    padding: 5vw;
+    margin: auto;
+  }
+  
+  div.box {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  div.btn-controls {
+    display: flex;
+  }
+
+  h2 {
+    color: black;
+    margin-bottom: 0;
+  }
+  
+  #playerName {
+    color: white;
+    font-size: 2em;
+    margin-top: 0;
+  }
+  
+  #instructions {
+    color: black;
+  }
+  
+  #loginControls {
+    display: flex;
+  }
+  
+  #preexistingControls {
+    display: flex;
+  }
+  
+  label {
+    color: black;
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  
+  li {
+    margin-right: 2em;
+    margin-left: 1em;
+  }
+  
+
+  
