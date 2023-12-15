@@ -1,13 +1,18 @@
 import React from 'react';
 import './shopping_list.css';
 import { Button } from 'react-bootstrap';
-
+let socket;
+const AddShoppingList = 'listAddedTo';
+const ResetShoppingList = 'listReset';
+let first = true;
 
 export function ShoppingList() {
   let [groceries, setGroceries] = React.useState([]);
   let [newItem, setNewItem] = React.useState([]);
   let userINFO = getUser();
-  let link = '/api/grocery_list?name=' + userINFO
+  // let link = '/api/grocery_list?name=' + userINFO
+  let link = 'https://startup.plateplanner.click/api/grocery_list?name=' + userINFO
+
 
   function getUser() {
     return localStorage.getItem('user');
@@ -20,6 +25,13 @@ export function ShoppingList() {
   function saveListLocally() {
     localStorage.setItem('list', JSON.stringify(groceries));
   } 
+
+  function initializeWS() {
+    if (first) {
+      configureWebSocket();
+      first = false;
+    }
+  }
 
   React.useEffect(() => {
     fetch(link, {
@@ -84,6 +96,7 @@ export function ShoppingList() {
     setGroceries([]);
     localStorage.setItem('list', JSON.stringify([]));
     saveIngredients();
+    broadcastEvent(getUser(), ResetShoppingList, {});
   }
 
   function addItem() {
@@ -91,6 +104,7 @@ export function ShoppingList() {
     localStorage.setItem('list', JSON.stringify(groceries));
     saveIngredients();
     setGroceries(groceries);
+    broadcastEvent(getUser(), AddShoppingList, newItem);
   }
 
   function deleteItem() {
@@ -115,6 +129,45 @@ export function ShoppingList() {
     }
   }
 
+    // Peer-to-Peer Communication
+    function configureWebSocket() {
+      const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+      socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+      socket.onopen = (event) => {
+        displayMsg('system', getUser(), 'connected');
+        console.log('opening');
+      };
+      socket.onclose = (event) => {
+        displayMsg('system', 'user', 'disconnected');
+        console.log('closing')
+      };
+      socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        if (msg.type === ResetShoppingList) {
+          displayMsg('system', msg.from, `reset their shopping list`);
+        } else if (msg.type === AddShoppingList) {
+          displayMsg('system', msg.from, `added ${msg.value} to their shopping list`);
+        } 
+      };
+    }
+
+    function displayMsg(cls, from, msg) {
+      const chatText = document.querySelector('#player-messages');
+      chatText.innerHTML =
+        `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+    }
+
+    function broadcastEvent(from, type, value) {
+      const event = {
+        from: from,
+        type: type,
+        value: value,
+      };
+      console.log("sending")
+      socket.send(JSON.stringify(event));
+    }
+
+
   return (
     <main>
       <div className="Shopping_List">
@@ -137,7 +190,7 @@ export function ShoppingList() {
         <div className="btn-group">
           <Button variant='dark' onClick={() => resetList()}>Reset List</Button>
         </div>
-        <div id="player-messages"></div>
+        <div id="player-messages">{initializeWS()}</div>
       </aside>
     </main>
   );

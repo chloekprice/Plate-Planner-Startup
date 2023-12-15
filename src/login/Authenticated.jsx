@@ -24,7 +24,7 @@ export function Authenticated(props) {
   return (
     <div>
       <div className='playerName'>{props.userName}'s Plate Planner</div>
-      <div clasName='options'>
+      <div className='options'>
         <Button variant='dark' onClick={() => navigate('/calendar')}>
           Plan Your Plate!
         </Button>
