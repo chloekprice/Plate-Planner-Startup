@@ -10,8 +10,26 @@ justify-content: left;
 color: black;
 }
 
+h2.title {
+    font-size: 3vw;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    column-count: 1;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+}
+
+h2.actions {
+    font-size: 2vw;
+}
+
 aside {
 width: 30%;
+font-size: 1vw;
 padding-left: 2vw;
 margin-left: 40vw;
 margin-top: 5vw;

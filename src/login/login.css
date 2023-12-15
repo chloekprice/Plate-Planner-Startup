@@ -60,11 +60,14 @@
     margin-bottom: 0;
   }
   
-  #playerName {
-    color: white;
-    font-size: 2em;
-    margin-top: 0;
+  div.playerName {
+    color: black;
+    font-size: 7vw;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    align-items: center;
   }
+
   
   #instructions {
     color: black;

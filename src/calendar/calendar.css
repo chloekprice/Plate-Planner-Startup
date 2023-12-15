@@ -1,61 +1,18 @@
-main{
-    flex: 1;
-    font-size: 20px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    margin-left: 5vw;
+div.calendar {
+    margin: auto;
+    text-align: center;
 }
 
 h2 {
 padding: 0em;
 color: black;
+margin-top: 3vw;
+font-size: 4vw;
 }
 
-p {
+p.instruction {
 padding: 0em;
-}
-
-table, th, td {
-background: white;
-color: black;
-border: 1px solid;
-border-collapse: collapse;
-}
-
-th {
-padding: 15px;
-}
-
-td.day {
-font-weight: bold;
-}
-
-button {
 color: white;
-background: black;
-margin: 2vw;
+font-size: 2vw;
 }
 
-footer {
-background: black;
-color: white;
-font-size: 1em;
-padding: 1vw;
-margin-bottom: 0em; 
-width: 98.5%;
-
-flex: 0 50px;
-
-display: flex;
-flex-direction: row;
-justify-content: right;
-align-items: right;
-}
-
-span.test-reset{
-margin-right: 10px;
-}
