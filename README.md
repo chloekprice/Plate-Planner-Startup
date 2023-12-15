@@ -63,5 +63,11 @@ For this deliverable I used webSocket to update user actions in realtime
 - Frontend makes WebSocket connection: check!
 - Data sent over WebSocket connection: check!
 - WebSocket data displayed: Messages are displayed whenever any user adds to their grocery list or resets it
+## React Deliverable
+For this deliverable I converted the application over to use React.
+- Bundled and transpiled: check!
+- Components: Login, calendar, and shopping list are all components.
+- Router: Routing between login, calendar, and shopping list components.
+- Hooks: Tracks changes in the shopping list page as the user edits it (page must be refreshed to work).
 # Project notes
 Here is the link to the notes for this project on GitHub https://github.com/chloekprice/startup/blob/1c7604bf68cc406011c1c4a677d9435da65fed34/notes.md 
