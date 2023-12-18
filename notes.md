@@ -75,6 +75,10 @@ notes:
 # Midterm Notes
 ![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/midterm_notes.jpg?raw=true)
 
+# Final Exam Notes
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG_8142.jpg?raw=true)
+![HTML Notes 2](https://github.com/chloekprice/startup/blob/main/images/IMG_8143.jpg?raw=true)
+
 # SIMON HTML NOTES
 - 4 html pages (just the structure of the code)
 - index.html (most browsers look for this default page-- top level, usually login)
